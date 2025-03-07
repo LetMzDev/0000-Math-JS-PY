@@ -1,0 +1,219 @@
+@use './components/body';
+
+/*
+sass style/scss/lista_itens.scss style/css/lista_itens.css
+*/
+
+.accordion-item
+{
+	background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+	border-radius: 15px;
+	border: none;
+	margin-bottom: 15px;
+	box-shadow: 3px 3px 10px #00000088, -3px -3px 10px #1a1a1a88;
+}
+
+.accordion-button
+{
+	background-color: #8b0000;
+	color: white;
+	font-weight: bold;
+	border-radius: 15px;
+	padding: 15px;
+	transition: all 0.3s;
+	font-size: 1.5rem;
+}
+
+.accordion-button:hover
+{
+	background-color: #a10000;
+	box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+.accordion-button:focus
+{
+	box-shadow: none;
+}
+
+.accordion-button:not(.collapsed)
+{
+	background-color: #8b0000 !important;
+	color: white !important;
+}
+
+.list-group-item
+{
+	background-color: #222;
+	color: #fff;
+	border: 1px solid #8b0000;
+	transition: all 0.3s;
+}
+
+.list-group-item:hover
+{
+	background-color: #8b000069;
+	color: white;
+	transform: scale(1.05);
+}
+
+.list-group-header
+{
+	background: linear-gradient(145deg, #3a0a0a, #2a0000) !important;
+	border: 1px solid #8b0000 !important;
+	border-left: 4px solid #ff4444 !important;
+	color: #ffffff !important;
+	font-weight: 600;
+	letter-spacing: 0.5px;
+	padding: 1rem 1.5rem;
+	margin: 10px 0;
+	position: relative;
+	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3),
+				inset 0 1px 1px rgba(255, 255, 255, 0.1);
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+	list-style: none;
+}
+
+.list-group-header::before
+{
+	content: "📖";
+	margin-right: 10px;
+	filter: drop-shadow(0 0 4px rgba(255, 68, 68, 0.7)); /* Brilho vermelho */
+	opacity: 0.9;
+}
+
+.list-group-header:hover
+{
+	background: linear-gradient(145deg, #4a0a0a, #3a0000) !important;
+	transform: translateX(5px);
+	box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.4),
+				inset 0 2px 2px rgba(255, 255, 255, 0.2);
+	color: #ffeeee !important;
+	border-left-color: #ff6666;
+}
+
+.btn-toggle
+{
+	margin-bottom: 20px;
+	background: linear-gradient(145deg, #6a0000, #353e36);
+	color: white;
+	border-radius: 10px;
+	padding: 12px 25px;
+	border: none;
+	font-size: 1.1rem;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	position: relative;
+	box-shadow: 0 4px 15px rgba(139, 0, 0, 0.4),
+				0 6px 20px rgba(0, 0, 0, 0.3),
+				inset 0 2px 2px rgba(255, 255, 255, 0.1);
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+	overflow: hidden;
+}
+
+.btn-toggle:hover
+{
+	background: linear-gradient(145deg, #8b0000, #353e36);
+	transform: translateY(-2px);
+	box-shadow: 0 6px 25px rgba(139, 0, 0, 0.5),
+				0 8px 25px rgba(0, 0, 0, 0.4),
+				inset 0 2px 3px rgba(255, 255, 255, 0.2);
+}
+
+.btn-toggle:active
+{
+	transform: translateY(1px);
+	box-shadow: 0 3px 10px rgba(139, 0, 0, 0.3),
+				inset 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn-toggle::before
+{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 200%;
+	height: 100%;
+	background: linear-gradient(
+		90deg,
+		rgba(255, 255, 255, 0) 10%,
+		rgba(255, 255, 255, 0.1) 50%,
+		rgba(255, 255, 255, 0) 90%
+	);
+	transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-toggle:hover::before
+{
+	left: 100%;
+}
+
+/* Ajustes no accordion-button  */
+.accordion-button
+{
+	background: linear-gradient(145deg, #6a0000, #332f2f);
+	box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3),
+				inset 0 2px 2px rgba(255, 255, 255, 0.1);
+}
+
+.accordion-button:hover
+{
+	background: linear-gradient(145deg, #8b0000, #332f2f);
+	box-shadow: 0 6px 20px rgba(139, 0, 0, 0.4),
+				inset 0 2px 3px rgba(255, 255, 255, 0.2);
+}
+
+/* Estilos para o accordion aninhado */
+.nested-accordion
+{
+	margin-left: 1.5rem;
+	border-left: 2px solid #8b0000;
+	padding-left: 1rem;
+}
+
+.nested-item
+{
+	background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+	border-radius: 12px;
+	border: 1px solid #4a0000;
+	margin-bottom: 0.5rem;
+}
+
+.nested-btn
+{
+	background: rgba(139, 0, 0, 0.2) !important;
+	color: #bc7070d7 !important;
+	border-radius: 8px !important;
+	padding: 0.75rem 1.25rem;
+	font-size: 0.9em;
+}
+
+.nested-btn:hover
+{
+	background: #8b000069 !important;
+	transform: translateX(3px);
+	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nested-btn:not(.collapsed)
+{
+	background: rgba(139, 0, 0, 0.4) !important;
+	color: #fff !important;
+}
+
+.nested-list-item
+{
+	background: #1a1a1a !important;
+	border: 1px solid #2a0000 !important;
+	margin: 2px 0;
+	padding: 0.5rem 1.5rem;
+	font-size: 0.9em;
+	transition: all 0.2s;
+}
+
+.nested-list-item:hover
+{
+	background: #8b000069 !important;
+	transform: scale(1.02);
+	border-color: #8b0000 !important;
+}
