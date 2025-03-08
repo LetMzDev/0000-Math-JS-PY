@@ -99,3 +99,33 @@ h4
 {
 	text-decoration: underline;
 }
+
+/* Estilo para imagens */
+.imagem
+{
+	max-width: 100%;
+	height: auto;
+	margin: 0 auto 20px;
+	display: block;
+	border-radius: 10px;
+	box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3);
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+	/* Ajustes responsivos */
+	@media (min-width: 1200px)
+	{
+		max-width: 80%;
+	}
+
+	@media (max-width: 768px)
+	{
+		max-width: 95%;
+		margin-bottom: 15px;
+	}
+
+	&:hover
+	{
+		transform: scale(1.02);
+		box-shadow: 0 6px 20px rgba(139, 0, 0, 0.5);
+	}
+}
