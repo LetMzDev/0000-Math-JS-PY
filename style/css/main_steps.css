@@ -1,0 +1,222 @@
+@charset "UTF-8";
+body {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  margin-top: 50px;
+  max-width: 1800px;
+}
+
+.card {
+  background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5333333333), -3px -3px 10px rgba(26, 26, 26, 0.5333333333);
+}
+
+.card-header {
+  background: linear-gradient(145deg, #6a0000, #8b0000);
+  color: white;
+  border-bottom: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 15px 15px 0 0;
+  padding: 15px;
+  box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3), inset 0 2px 2px rgba(255, 255, 255, 0.1);
+}
+
+h4 {
+  font-family: "Poppins", sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #ff9999;
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 0 4px 6px rgba(139, 0, 0, 0.3);
+}
+
+.step {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+  border-radius: 10px;
+  border-left: 4px solid #8b0000;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.step:hover {
+  transform: translateX(5px);
+  border-left: 4px solid #ff4444;
+  box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.4);
+}
+
+.step h5 {
+  color: #ff6666;
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.solution {
+  margin-top: 20px;
+  padding: 15px;
+  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+  border-radius: 10px;
+  border-left: 4px solid #8b0000;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.footer {
+  margin-top: 50px;
+  text-align: center;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.footer a {
+  color: #ff6666;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/*
+sass style/scss/math_style.scss style/css/math_style.css
+*/
+/* Estilo para todas as expressões matemáticas */
+.math-expression {
+  font-family: "CMU Serif", serif;
+  font-size: 1.7em;
+  font-weight: bold;
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), -1px -1px 1px rgba(255, 255, 255, 0.2), 0 0 8px rgba(255, 68, 68, 0.3);
+  animation: math-glow 2s ease-in-out infinite alternate;
+  padding: 2px 5px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+@keyframes math-glow {
+  from {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), -1px -1px 1px rgba(255, 255, 255, 0.2), 0 0 8px rgba(255, 68, 68, 0.3);
+  }
+  to {
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4), -2px -2px 2px rgba(255, 255, 255, 0.3), 0 0 12px rgba(255, 68, 68, 0.5);
+  }
+}
+.MathJax {
+  font-family: "CMU Serif", serif !important;
+  font-size: 1.7em !important;
+}
+
+.MathJax_Display {
+  font-size: 1.7em !important;
+  margin: 1.5em 0 !important;
+  padding: 15px !important;
+  background: rgba(0, 0, 0, 0.2) !important;
+  border-radius: 8px !important;
+  border-left: 3px solid #8b0000 !important;
+  animation: math-glow 2s ease-in-out infinite alternate;
+}
+
+.mjx-chtml {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), -1px -1px 1px rgba(255, 255, 255, 0.2), 0 0 8px rgba(255, 68, 68, 0.3) !important;
+  background: linear-gradient(145deg, #ffffff, #f0f0f0) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  padding: 2px 5px !important;
+}
+
+@keyframes math-glow {
+  from {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), -1px -1px 1px rgba(255, 255, 255, 0.2), 0 0 8px rgba(255, 68, 68, 0.3);
+  }
+  to {
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4), -2px -2px 2px rgba(255, 255, 255, 0.3), 0 0 12px rgba(255, 68, 68, 0.5);
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+    margin-top: 20px;
+  }
+  .card-header {
+    font-size: 1.2rem;
+    padding: 12px;
+  }
+  h4 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  .step {
+    padding: 12px;
+    margin-bottom: 15px;
+  }
+  .step h5 {
+    font-size: 1.1rem;
+  }
+  .step p {
+    font-size: 0.95rem;
+  }
+  .MathJax_Display {
+    font-size: 1.2em !important;
+    margin: 1em 0 !important;
+    padding: 10px !important;
+  }
+  .footer {
+    margin-top: 30px;
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 576px) {
+  .card-header {
+    font-size: 1.1rem;
+  }
+  h4 {
+    font-size: 1.3rem;
+  }
+  .step {
+    margin-bottom: 12px;
+    border-left-width: 3px;
+  }
+  .step h5 {
+    font-size: 1rem;
+  }
+  .MathJax {
+    font-size: 1.4em !important;
+  }
+  .mjx-chtml {
+    padding: 1px 3px !important;
+  }
+  .footer {
+    margin-top: 20px;
+  }
+}
+@media (max-width: 400px) {
+  .card-header {
+    font-size: 1rem;
+  }
+  h4 {
+    font-size: 1.2rem;
+  }
+  .step {
+    padding: 10px;
+  }
+  .MathJax_Display {
+    font-size: 1.1em !important;
+  }
+}
+
+/*# sourceMappingURL=main_steps.css.map */

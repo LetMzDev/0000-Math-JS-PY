@@ -1,0 +1,111 @@
+@media (max-width: 768px)
+{
+	.container
+	{
+		padding: 0 15px;
+		margin-top: 20px;
+	}
+
+	.card-header
+	{
+		font-size: 1.2rem;
+		padding: 12px;
+	}
+
+	h4
+	{
+		font-size: 1.5rem;
+		margin-bottom: 20px;
+	}
+
+	.step
+	{
+		padding: 12px;
+		margin-bottom: 15px;
+	}
+
+	.step h5
+	{
+		font-size: 1.1rem;
+	}
+
+	.step p
+	{
+		font-size: 0.95rem;
+	}
+
+	.MathJax_Display
+	{
+		font-size: 1.2em !important;
+		margin: 1em 0 !important;
+		padding: 10px !important;
+	}
+
+	.footer
+	{
+		margin-top: 30px;
+		font-size: 0.8rem;
+	}
+}
+
+@media (max-width: 576px)
+{
+	.card-header
+	{
+		font-size: 1.1rem;
+	}
+
+	h4
+	{
+		font-size: 1.3rem;
+	}
+
+	.step
+	{
+		margin-bottom: 12px;
+		border-left-width: 3px;
+	}
+
+	.step h5
+	{
+		font-size: 1rem;
+	}
+
+	.MathJax
+	{
+		font-size: 1.4em !important;
+	}
+
+	.mjx-chtml
+	{
+		padding: 1px 3px !important;
+	}
+
+	.footer
+	{
+		margin-top: 20px;
+	}
+}
+
+@media (max-width: 400px)
+{
+	.card-header
+	{
+		font-size: 1rem;
+	}
+
+	h4
+	{
+		font-size: 1.2rem;
+	}
+
+	.step
+	{
+		padding: 10px;
+	}
+
+	.MathJax_Display
+	{
+		font-size: 1.1em !important;
+	}
+}
