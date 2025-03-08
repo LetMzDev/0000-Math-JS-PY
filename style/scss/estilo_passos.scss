@@ -1,0 +1,105 @@
+body
+{
+	background-color: #121212;
+	color: #ffffff;
+	font-family: 'Roboto', sans-serif;
+}
+
+/*
+sass style/scss/estilo_passos.scss style/css/estilo_passos.css
+*/
+
+.container
+{
+	margin-top: 50px;
+	max-width: 1800px;
+}
+
+.card
+{
+	background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+	border: none;
+	border-radius: 15px;
+	box-shadow: 3px 3px 10px #00000088, -3px -3px 10px #1a1a1a88;
+}
+
+.card-header
+{
+	background: linear-gradient(145deg, #6a0000, #8b0000);
+	color: white;
+	border-bottom: none;
+	font-size: 1.5rem;
+	font-weight: bold;
+	border-radius: 15px 15px 0 0;
+	padding: 15px;
+	box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3),
+				inset 0 2px 2px rgba(255, 255, 255, 0.1);
+}
+
+h4
+{
+	font-family: 'Poppins', sans-serif;
+	font-size: 2rem;
+	font-weight: 600;
+	color: #ff9999;
+	text-align: center;
+	margin-bottom: 30px;
+	text-shadow: 0 4px 6px rgba(139, 0, 0, 0.3);
+}
+
+.step
+{
+	font-size: 1.4rem;
+	margin-bottom: 20px;
+	padding: 15px;
+	background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+	border-radius: 10px;
+	border-left: 4px solid #8b0000;
+	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.step:hover
+{
+	transform: translateX(5px);
+	border-left: 4px solid #ff4444;
+	box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.4);
+}
+
+.step h5
+{
+	color: #ff6666;
+	margin-bottom: 10px;
+	font-size: 1.4rem;
+	font-weight: 500;
+	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.solution
+{
+	margin-top: 20px;
+	padding: 15px;
+	background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+	border-radius: 10px;
+	border-left: 4px solid #8b0000;
+	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.footer
+{
+	margin-top: 50px;
+	text-align: center;
+	color: #777;
+	font-size: 0.9rem;
+}
+
+.footer a
+{
+	color: #ff6666;
+	text-decoration: none;
+}
+
+.footer a:hover
+{
+	text-decoration: underline;
+}

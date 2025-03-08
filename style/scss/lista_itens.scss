@@ -217,3 +217,15 @@ sass style/scss/lista_itens.scss style/css/lista_itens.css
 	transform: scale(1.02);
 	border-color: #8b0000 !important;
 }
+
+.nested-list-item a
+{
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	display: block;
+}
+
+.nested-list-item:hover a
+{
+	transform: translateX(5px);
+	text-shadow: 0 0 8px rgba(255, 68, 68, 0.5);
+}
