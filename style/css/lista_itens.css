@@ -204,4 +204,11 @@ sass style/scss/lista_itens.scss style/css/lista_itens.css
   text-shadow: 0 0 8px rgba(255, 68, 68, 0.5);
 }
 
+span[data-num1][data-num2] {
+  margin-left: 12px;
+  font-weight: bold;
+  color: #93b079;
+  font-size: 0.8em;
+}
+
 /*# sourceMappingURL=lista_itens.css.map */
