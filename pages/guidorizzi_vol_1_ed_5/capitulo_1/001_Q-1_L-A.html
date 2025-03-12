@@ -27,8 +27,8 @@
 					<i class = "fas fa-calculator"></i> Exercício 1.2
 				</div>
 				<div class = "card-body">
-					<h4>1) Resolva as inequações:</h4>
-					<h5>A) \( 3x + 3 < x + 6 \)</h5>
+					<h4>(1) Resolva as inequações:</h4>
+					<h5>(A) \( 3x + 3 < x + 6 \)</h5>
 					<hr>
 
 					<section> <!--  Parte 1  -->
@@ -81,12 +81,16 @@
 
 						<article class = "step"> <!--  Reta Numérica  -->
 							<h5><i class = "fas fa-chart-line"></i> Reta Numérica:</h5>
-							<div class = "imagem">
-								<img src = "../../../img/graphics/Guidorizzi_Vol-1_Ed-5/003_Exercicios_1-2/001_Q-1_L-A.png" 
-										alt = "Solução gráfica da inequação" 
-										class = "img-fluid"
+
+							<figure class = "imagem zoomable" onclick = "Abrir_Zoom ( this )">
+								<img 
+									src = "../../../img/graphics/Guidorizzi_Vol-1_Ed-5/003_Exercicios_1-2/001_Q-1_L-A.png" 
+									alt = "Solução gráfica da inequação" 
+									class = "img-fluid"
+									data-legenda = "Imagem 1: Solução gráfica."
 								>
-							</div>
+								<figcaption>Imagem 1: Solução gráfica.</figcaption>
+							</figure>
 						</article>
 					</section>
 				</div>
@@ -96,8 +100,29 @@
 </div>
 </main>
 
+<section> <!-- Modal -->
+	<div> <!--  Imagem 1  -->
+		<div id = "modalZoom" class = "modal-zoom">
+			<span class = "fechar" onclick = "Fechar_Zoom()">&times;</span>
+			<img class = "modal-conteudo" id = "img_Zoom">
+			<div class = "modal-legenda" id = "img_Legenda"></div>
+
+			<!-- Controles Extras -->
+			<div class="modal-controles">
+				<button onclick = "Zoom_In();" title = "Ampliar zoom">🔍+</button>
+				<button onclick = "Zoom_Out();" title = "Reduzir zoom">🔍-</button>
+				<button onclick = "Toggle_Theme();" title = "Alternar tema">🌗</button>
+				<button onclick = "Download_Imagem();" title = "Salvar">📥</button>
+				<button onclick = "Fechar_Zoom()" title = "Fechar">❌</button>
+			</div>
+		</div>
+	</div>
+</section>
+
 	<div class = "footer">
 		<p>Criado por <a href = "#" target="_blank">RafaMZ</a></p>
 	</div>
+
+	<script src = "../../../script/javascript/imagens/zoom.js"></script>
 </body>
 </html>
