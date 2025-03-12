@@ -3,6 +3,14 @@ let rotation = 0;
 let flipped = false;
 let dark_Mode = true;
 
+// Mover a imagem
+let isDragging = false;
+let isMouseDown = false;
+let startX = 0;
+let startY = 0;
+let currentX = 0;
+let currentY = 0;
+
 // Abrir Zoom
 function Abrir_Zoom ( imgContainer )
 {
@@ -18,6 +26,8 @@ function Abrir_Zoom ( imgContainer )
 	rotation = 0;
 	flipped = false;
 	dark_Mode = true;
+	currentX = 0;
+	currentY = 0;
 
 	modal.classList.add ( "show" );
 	modal.style.display = "block";
@@ -43,11 +53,13 @@ function Atualizar_Transformacao()
 	{
 		img_Zoom.style.transformOrigin = 'center center';
 		img_Zoom.style.transform = `
+			translate(${currentX}px, ${currentY}px)
 			scale(${zoom_Level}) 
 			rotate(${rotation}deg) 
 			scaleX(${flipped ? -1 : 1})
 		`;
-		img_Zoom.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+
+		img_Zoom.style.transition = 'transform 0.1s linear';
 	}
 }
 
@@ -109,4 +121,35 @@ document.querySelectorAll ( ".modal-controles button" ).forEach ( button =>
 	{
 		e.stopPropagation();
 	});
+});
+
+// Detectar clique pressionado para arrastar
+document.getElementById ( "img_Zoom" ).addEventListener ( "mousedown", function ( e )
+{
+	isMouseDown = true;
+	startX = e.clientX - currentX;
+	startY = e.clientY - currentY;
+
+	setTimeout(() =>
+	{
+		if ( isMouseDown )
+			isDragging = true;
+
+	}, 100);
+});
+
+document.addEventListener ( "mousemove", function ( e )
+{
+	if ( isDragging )
+	{
+		currentX = e.clientX - startX;
+		currentY = e.clientY - startY;
+		Atualizar_Transformacao();
+	}
+});
+
+document.addEventListener ( "mouseup", function ()
+{
+	isMouseDown = false;
+	isDragging = false;
 });

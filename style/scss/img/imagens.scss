@@ -55,7 +55,14 @@
 	animation: zoom 0.3s;
 	border-radius: 10px;
 	box-shadow: 0 4px 30px rgba(139, 0, 0, 0.4);
-	cursor: default;
+
+	cursor: grab;
+	touch-action: none;
+}
+
+.modal-conteudo:active
+{
+	cursor: grabbing;
 }
 
 .fechar
