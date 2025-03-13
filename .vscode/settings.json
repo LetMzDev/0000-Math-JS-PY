@@ -4,9 +4,16 @@
 		"Detectar",
 		"Guidorizzi",
 		"infty",
+		"Inkscape",
 		"manim",
+		"Metadados",
 		"Resetar",
 		"responsivos",
+		"seção",
+		"svgs",
+		"venv",
+		"vetorizada",
 		"zoomable"
-	]
+	],
+	"liveServer.settings.port": 5501
 }
