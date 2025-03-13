@@ -1,0 +1,29 @@
+@media (max-width: 768px)
+{
+	.modal-conteudo
+	{
+		width: 95% !important;
+		height: auto;
+		max-height: 80vh;
+		object-fit: contain;
+	}
+
+	.modal-controles
+	{
+		bottom: 10px;
+		padding: 8px;
+		gap: 8px;
+
+		button
+		{
+			padding: 6px 12px;
+			font-size: 16px;
+		}
+	}
+
+	.modal-legenda
+	{
+		font-size: 14px;
+		max-width: 90%;
+	}
+}

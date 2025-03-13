@@ -153,3 +153,37 @@ document.addEventListener ( "mouseup", function ()
 	isMouseDown = false;
 	isDragging = false;
 });
+
+// Touch events ( mobile )
+
+document.getElementById ( "img_Zoom" ).addEventListener ( "touchstart", function ( e )
+{
+	isMouseDown = true;
+	const touch = e.touches [ 0 ];
+	startX = touch.clientX - currentX;
+	startY = touch.clientY - currentY;
+
+	setTimeout(() =>
+	{
+		if ( isMouseDown ) isDragging = true;
+	}, 100);
+});
+
+document.addEventListener ( "touchmove", function ( e )
+{
+	if ( isDragging )
+	{
+		const touch = e.touches [ 0 ];
+		currentX = touch.clientX - startX;
+		currentY = touch.clientY - startY;
+
+		Atualizar_Transformacao();
+		e.preventDefault(); // Impede o scroll da página
+	}
+}, { passive: false });
+
+document.addEventListener ( "touchend", function()
+{
+	isMouseDown = false;
+	isDragging = false;
+});

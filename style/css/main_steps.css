@@ -147,77 +147,6 @@ sass style/scss/math_style.scss style/css/math_style.css
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4), -2px -2px 2px rgba(255, 255, 255, 0.3), 0 0 12px rgba(255, 68, 68, 0.5);
   }
 }
-@media (max-width: 768px) {
-  .container {
-    padding: 0 15px;
-    margin-top: 20px;
-  }
-  .card-header {
-    font-size: 1.2rem;
-    padding: 12px;
-  }
-  h4 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-  }
-  .step {
-    padding: 12px;
-    margin-bottom: 15px;
-  }
-  .step h5 {
-    font-size: 1.1rem;
-  }
-  .step p {
-    font-size: 0.95rem;
-  }
-  .MathJax_Display {
-    font-size: 1.2em !important;
-    margin: 1em 0 !important;
-    padding: 10px !important;
-  }
-  .footer {
-    margin-top: 30px;
-    font-size: 0.8rem;
-  }
-}
-@media (max-width: 576px) {
-  .card-header {
-    font-size: 1.1rem;
-  }
-  h4 {
-    font-size: 1.3rem;
-  }
-  .step {
-    margin-bottom: 12px;
-    border-left-width: 3px;
-  }
-  .step h5 {
-    font-size: 1rem;
-  }
-  .MathJax {
-    font-size: 1.4em !important;
-  }
-  .mjx-chtml {
-    padding: 1px 3px !important;
-  }
-  .footer {
-    margin-top: 20px;
-  }
-}
-@media (max-width: 400px) {
-  .card-header {
-    font-size: 1rem;
-  }
-  h4 {
-    font-size: 1.2rem;
-  }
-  .step {
-    padding: 10px;
-  }
-  .MathJax_Display {
-    font-size: 1.1em !important;
-  }
-}
 /* Estilo para imagens */
 .imagem {
   max-width: 100%;
@@ -380,6 +309,98 @@ sass style/scss/math_style.scss style/css/math_style.css
   background: rgba(255, 255, 255, 0.7);
 }
 
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+    margin-top: 20px;
+  }
+  .card-header {
+    font-size: 1.2rem;
+    padding: 12px;
+  }
+  h4 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  .step {
+    padding: 12px;
+    margin-bottom: 15px;
+  }
+  .step h5 {
+    font-size: 1.1rem;
+  }
+  .step p {
+    font-size: 0.95rem;
+  }
+  .MathJax_Display {
+    font-size: 1.2em !important;
+    margin: 1em 0 !important;
+    padding: 10px !important;
+  }
+  .footer {
+    margin-top: 30px;
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 576px) {
+  .card-header {
+    font-size: 1.1rem;
+  }
+  h4 {
+    font-size: 1.3rem;
+  }
+  .step {
+    margin-bottom: 12px;
+    border-left-width: 3px;
+  }
+  .step h5 {
+    font-size: 1rem;
+  }
+  .MathJax {
+    font-size: 1.4em !important;
+  }
+  .mjx-chtml {
+    padding: 1px 3px !important;
+  }
+  .footer {
+    margin-top: 20px;
+  }
+}
+@media (max-width: 400px) {
+  .card-header {
+    font-size: 1rem;
+  }
+  h4 {
+    font-size: 1.2rem;
+  }
+  .step {
+    padding: 10px;
+  }
+  .MathJax_Display {
+    font-size: 1.1em !important;
+  }
+}
+@media (max-width: 768px) {
+  .modal-conteudo {
+    width: 95% !important;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+  }
+  .modal-controles {
+    bottom: 10px;
+    padding: 8px;
+    gap: 8px;
+  }
+  .modal-controles button {
+    padding: 6px 12px;
+    font-size: 16px;
+  }
+  .modal-legenda {
+    font-size: 14px;
+    max-width: 90%;
+  }
+}
 /*
 sass style/scss/main_steps.scss style/css/main_steps.css
 */

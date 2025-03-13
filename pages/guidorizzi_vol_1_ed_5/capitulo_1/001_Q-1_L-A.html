@@ -124,5 +124,12 @@
 	</div>
 
 	<script src = "../../../script/javascript/imagens/zoom.js"></script>
+
+	<script>
+		// Inclui mobile.js apenas para dispositivos móveis
+		if (window.innerWidth <= 768) {
+			document.write('<script src="../../../script/javascript/imagens/mobile.js"><\/script>');
+		}
+	</script>
 </body>
 </html>
