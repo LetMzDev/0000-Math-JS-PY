@@ -204,7 +204,7 @@ sass style/scss/math_style.scss style/css/math_style.css
 }
 
 .fechar {
-  position: absolute;
+  position: block !important;
   top: 15px;
   right: 35px;
   color: #fff;
@@ -212,7 +212,8 @@ sass style/scss/math_style.scss style/css/math_style.css
   font-weight: bold;
   transition: 0.3s;
   cursor: pointer;
-  pointer-events: none;
+  pointer-events: all !important;
+  opacity: 0 !important;
 }
 
 .fechar:hover {

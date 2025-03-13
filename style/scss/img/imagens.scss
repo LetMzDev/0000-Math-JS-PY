@@ -67,15 +67,17 @@
 
 .fechar
 {
-	position: absolute;
+	position: block !important;
 	top: 15px;
 	right: 35px;
 	color: #fff;
 	font-size: 40px;
 	font-weight: bold;
 	transition: 0.3s;
+
 	cursor: pointer;
-	pointer-events: none;
+	pointer-events: all !important;
+    opacity: 0 !important;
 }
 
 .fechar:hover
