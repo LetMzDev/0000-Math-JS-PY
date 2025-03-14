@@ -153,8 +153,6 @@ sass style/scss/math_style.scss style/css/math_style.css
   height: auto;
   margin: 0 auto 20px;
   display: block;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   /* Ajustes responsivos */
 }
@@ -171,7 +169,6 @@ sass style/scss/math_style.scss style/css/math_style.css
 }
 .imagem:hover {
   transform: scale(1.02);
-  box-shadow: 0 6px 20px rgba(139, 0, 0, 0.5);
 }
 
 .modal-zoom {
@@ -193,8 +190,6 @@ sass style/scss/math_style.scss style/css/math_style.css
   width: 80%;
   max-width: 1200px;
   animation: zoom 0.3s;
-  border-radius: 10px;
-  box-shadow: 0 4px 30px rgba(139, 0, 0, 0.4);
   cursor: grab;
   touch-action: none;
 }
@@ -302,12 +297,12 @@ sass style/scss/math_style.scss style/css/math_style.css
 
 /* Modo claro */
 .modal-zoom.light {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(110, 109, 109, 0.594);
 }
 
 .modal-zoom.light .modal-legenda {
-  color: black;
-  background: rgba(255, 255, 255, 0.7);
+  color: rgb(255, 255, 255);
+  background: rgba(0, 0, 0, 0.594);
 }
 
 @media (max-width: 768px) {
