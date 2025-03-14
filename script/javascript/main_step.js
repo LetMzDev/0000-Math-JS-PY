@@ -5,3 +5,6 @@ import { Download_PDF } from './imagens/download_pdf.js';
 // Use as funções
 window.Download_Imagem_SVG = Download_Imagem_SVG;
 window.Download_PDF = Download_PDF;
+
+if ( window.innerWidth <= 768 )
+	import ( './imagens/mobile.js' );
