@@ -1,6 +1,6 @@
 // Exibe a quantidade de itens concluídos, o total de itens e a taxa percentual de conclusão.
 
-function calcularPercentual()
+export function Calcular_Percentual()
 {
 	document.querySelectorAll ( "span[data-num1][data-num2]" ).forEach ( span =>
 	{
@@ -18,4 +18,4 @@ function calcularPercentual()
 	});
 }
 
-calcularPercentual();
+Calcular_Percentual();
