@@ -23,8 +23,8 @@ if ( modal_Zoom )
 // Reset de posição ao girar o dispositivo
 window.addEventListener ( 'resize', () =>
 {
-	currentX = 0;
-	currentY = 0;
+	state.currentX = 0;
+	state.currentY = 0;
 
 	Atualizar_Transformacao();
 });
