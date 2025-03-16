@@ -1,0 +1,76 @@
+.card
+{
+	border: 1px solid #e65050a1;
+	border-radius: 25px;
+	transition: transform 0.3s, box-shadow 0.3s;
+	background-color: #000000;
+}
+
+.card:hover
+{
+	transform: translateY(-10px);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-icon
+{
+	font-size: 3rem;
+	color: #dc3545;
+	margin: 20px auto;
+}
+
+.card-title
+{
+	font-size: 1.5rem;
+	color: #dc3545;
+	margin-bottom: 10px;
+}
+
+.card-text
+{
+	font-size: 1rem;
+	color: #64c331;
+}
+
+.btn-custom
+{
+	background-color: #433737c0;
+	color: white;
+	border: none;
+	border-radius: 25px;
+	padding: 10px 20px;
+	font-size: 1rem;
+	transition: background-color 0.3s;
+}
+
+.btn-custom:hover
+{
+	background-color: #c82333;
+}
+
+.section-title
+{
+	font-size: 2.5rem;
+	color: #dc3545;
+	margin-bottom: 40px;
+	text-align: center;
+}
+
+.imagem
+{
+	width: 100%;
+	max-width: 250px;
+	height: auto;
+	margin: 0 auto 20px;
+	border-radius: 15px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	object-fit: cover;
+}
+
+@media (max-width: 768px)
+{
+	.imagem
+	{
+		max-width: 180px;
+	}
+}
