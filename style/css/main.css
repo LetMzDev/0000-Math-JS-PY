@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
@@ -82,6 +83,60 @@ body {
     max-width: 180px;
   }
 }
+/* ========== NOVOS ESTILOS PARA TÍTULO DE GRUPO ========== */
+.group-title {
+  font-size: 2.8rem;
+  color: #dc3545;
+  text-align: center;
+  margin: 2rem 0 3rem;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.group-title::before, .group-title::after {
+  content: "";
+  position: absolute;
+  background: linear-gradient(90deg, rgba(220, 53, 69, 0.8) 0%, rgba(100, 195, 49, 0.6) 50%, rgba(220, 53, 69, 0.8) 100%);
+  height: 3px;
+  width: 40%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.group-title::before {
+  left: 0;
+}
+.group-title::after {
+  right: 0;
+}
+.group-title span {
+  position: relative;
+  padding: 0 20px;
+  background: linear-gradient(90deg, #dc3545 25%, #c3ad31 50%, #dc3545 75%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-wave 3s linear infinite;
+}
+@keyframes gradient-wave {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 0%;
+  }
+}
+@media (max-width: 768px) {
+  .group-title {
+    font-size: 2rem;
+  }
+  .group-title::before, .group-title::after {
+    width: 30%;
+  }
+}
+
 /*
 sass style/scss/main.scss style/css/main.css
 */
