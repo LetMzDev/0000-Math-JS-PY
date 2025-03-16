@@ -1,0 +1,55 @@
+/* ========== ESTILO PARA SUBTÍTULOS DE VOLUME ========== */
+
+.volume-title
+{
+	font-size: 1.8rem;
+	color: #64c331;
+	text-align: center;
+	margin: 2rem 0;
+	position: relative;
+	padding-bottom: 10px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+
+	&::after
+	{
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 80px;
+		height: 3px;
+		background: linear-gradient(90deg, 
+			rgba(220,53,69,0) 0%, 
+			#dc3545 50%, 
+			rgba(220,53,69,0) 100%);
+		animation: volume-underline 2.5s infinite ease-in-out;
+	}
+
+	@keyframes volume-underline
+	{
+		0% {
+			width: 80px;
+			opacity: 0.5;
+		}
+		50% {
+			width: 120px;
+			opacity: 1;
+		}
+		100% {
+			width: 80px;
+			opacity: 0.5;
+		}
+	}
+
+	@media (max-width: 768px)
+	{
+		font-size: 1.5rem;
+
+	&::after
+	{
+		width: 60px;
+	}
+	}
+}
