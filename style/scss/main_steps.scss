@@ -1,10 +1,19 @@
-@use './estilo_passos.scss';
+@use './estilos/estilo_passos.scss';
 @use './components/barra_rolagem.scss';
-@use './math_style.scss';
+@use './estilos/math_style.scss';
 @use './img/imagens.scss';
 
 @use './responsive/resolution.scss';
 @use './responsive/imagens_resp.scss';
+
+// Bootstrap
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
+
+// Cloudflare Icons (Font Awesome)
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+
+// Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@600&display=swap');
 
 /*
 sass style/scss/main_steps.scss style/css/main_steps.css
