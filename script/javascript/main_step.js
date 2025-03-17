@@ -12,6 +12,7 @@ import './imagens/events.js';
 
 import { Download_Imagem_SVG } from './imagens/download_svg.js';
 import { Download_PDF } from './imagens/download_pdf.js';
+import { Configurar_Link_Footer } from './components/footer.js';
 
 // Use as funções
 window.Abrir_Zoom = Abrir_Zoom;
@@ -22,6 +23,8 @@ window.Toggle_Theme = Toggle_Theme;
 
 window.Download_Imagem_SVG = Download_Imagem_SVG;
 window.Download_PDF = Download_PDF;
+
+Configurar_Link_Footer();
 
 // Mobile
 if ( window.innerWidth <= 768 )

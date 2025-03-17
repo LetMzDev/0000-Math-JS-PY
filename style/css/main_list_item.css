@@ -233,6 +233,23 @@ span[data-num1][data-num2] {
   font-size: 0.8em;
 }
 
+.footer {
+  --link-url: https://github.com/LetMzDev;
+  margin-top: 50px;
+  text-align: center;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.footer a {
+  color: #ff6666;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
 /*
 sass style/scss/main_list_item.scss style/css/main_list_item.css
 */
