@@ -8,8 +8,16 @@
 	<!-- MathJax -->
 	<script src = "https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 	<script id = "MathJax-script" async src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<!-- Three.js -->
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src = "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/FontLoader.js"></script>
 	<!-- Custom CSS -->
 	<link rel = "stylesheet" href = "../../../style/css/main_steps.css">
+
+	<style>
+        /* Estilos para a animação */
+        
+    </style>
 </head>
 
 <body>
@@ -87,6 +95,11 @@
 								<figcaption>Imagem 1: Solução gráfica.</figcaption>
 							</figure>
 						</article>
+
+						<article class = "step"> <!--  Reta Numérica  -->
+							<h5><i class = "fas fa-chart-line"></i> Reta Numérica Interativa:</h5>
+							<div id = "animationContainer"></div>
+						</article>
 					</section>
 				</div>
 			</div>
@@ -124,5 +137,7 @@
 	<script src = "https://cdnjs.cloudflare.com/ajax/libs/canvg/3.0.0/canvg.min.js"></script>
 
 	<script type = "module" src = "../../../script/javascript/main_step.js"></script>
+	<script src = "../../../script/javascript/resolutions/Guidorizzi/Volume_1/edition_5/0003_exercises_1_2/question_1_A.js">
+</script>
 </body>
 </html>

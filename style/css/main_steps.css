@@ -97,9 +97,6 @@ html {
   scrollbar-width: thin;
 }
 
-/*
-sass style/scss/math_style.scss style/css/math_style.css
-*/
 /* Estilo para todas as expressões matemáticas */
 .math-expression {
   font-family: "CMU Serif", serif;
@@ -339,6 +336,17 @@ sass style/scss/math_style.scss style/css/math_style.css
     padding-bottom: 20px;
     margin-top: 120px;
   }
+}
+
+#animationContainer {
+  position: relative;
+  width: 1100px;
+  height: 300px;
+  margin: 20px 0;
+}
+
+canvas {
+  display: block;
 }
 
 @media (max-width: 768px) {
