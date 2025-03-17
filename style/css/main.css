@@ -45,6 +45,21 @@ html {
   border-radius: 25px;
   transition: transform 0.3s, box-shadow 0.3s;
   background-color: #000000;
+  position: relative;
+  overflow: hidden;
+}
+.card::after {
+  content: "Resoluções";
+  position: absolute;
+  top: -10px;
+  right: -30px;
+  background: #dc3545;
+  color: white;
+  padding: 12px 30px;
+  transform: rotate(45deg);
+  font-size: 0.8rem;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .card:hover {
@@ -204,21 +219,119 @@ html {
   }
 }
 
+.questoes-contador {
+  position: relative;
+  margin: -10px 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #64c331;
+}
+.questoes-contador::before {
+  content: "\f02d"; /* Ícone de livro do Font Awesome */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  color: #dc3545;
+}
+.questoes-contador span {
+  font-weight: 700;
+  background: linear-gradient(45deg, #dc3545, #c3ad31);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ===== TOTAL GERAL DE QUESTÕES ===== */
+.total-geral {
+  position: absolute;
+  top: 20px;
+  z-index: 1000;
+  background: linear-gradient(45deg, #8a232d 30%, #4b3a2c 70%);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 50px;
+  margin: 20px 50px;
+  width: fit-content;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 1.3rem;
+  backdrop-filter: blur(5px);
+  animation: total-pulse 2s infinite ease-in-out;
+}
+.total-geral::before {
+  content: "\f19d"; /* Ícone de formatura (Font Awesome) */
+  font-family: "Font Awesome 6 Free";
+  margin-right: 10px;
+  font-weight: 900;
+}
+.total-geral span {
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+@keyframes total-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@media (max-width: 768px) {
+  .total-geral {
+    font-size: 1rem;
+    padding: 10px 20px;
+    position: fixed;
+    bottom: 110px;
+    top: auto;
+    right: 20px;
+    left: auto;
+    margin: 0 0px;
+    width: calc(100% - 20px);
+    border-radius: 15px;
+    animation: none;
+    z-index: 999;
+  }
+}
+@media (max-width: 480px) {
+  .total-geral {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+    bottom: 10px;
+    right: 10px;
+    width: calc(100% - 20px);
+  }
+}
+
 .footer {
-  --link-url: https://github.com/LetMzDev;
-  margin-top: 50px;
+  --link-url: "https://github.com/LetMzDev";
+  margin-top: 80px;
+  padding: 20px 0 100px;
   text-align: center;
   color: #777;
   font-size: 0.9rem;
+  position: relative;
+  z-index: 100;
+  background: #000000;
 }
-
 .footer a {
   color: #ff6666;
   text-decoration: none;
+  transition: all 0.3s ease;
 }
-
 .footer a:hover {
   text-decoration: underline;
+  filter: brightness(1.2);
+}
+@media (min-width: 769px) {
+  .footer {
+    padding-bottom: 20px;
+    margin-top: 120px;
+  }
 }
 
 /*

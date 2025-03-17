@@ -1,8 +1,9 @@
 @use './components/body.scss';
 @use './components/barra_rolagem.scss';
-@use './estilos/style_main.scss';
-@use './estilos/titulos_main.scss';
-@use './estilos/subtitulos_volumes_main.scss';
+@use './estilos/index/style_main.scss';
+@use './estilos/index/titulos_main.scss';
+@use './estilos/index/subtitulos_volumes_main.scss';
+@use './estilos/index/contador.scss';
 @use './components/footer.scss';
 
 // bootstrap

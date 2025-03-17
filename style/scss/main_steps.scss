@@ -1,7 +1,7 @@
-@use './estilos/estilo_passos.scss';
+@use './estilos/resolutions/estilo_passos.scss';
 @use './components/barra_rolagem.scss';
-@use './estilos/math_style.scss';
-@use './img/imagens.scss';
+@use './estilos/resolutions/math_style.scss';
+@use './estilos/resolutions/imagens.scss';
 @use './components/footer.scss';
 
 @use './responsive/resolution.scss';

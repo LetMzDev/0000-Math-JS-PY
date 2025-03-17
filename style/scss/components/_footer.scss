@@ -1,20 +1,32 @@
 .footer
 {
-	--link-url: https://github.com/LetMzDev;
+	--link-url: "https://github.com/LetMzDev";
 
-	margin-top: 50px;
+	margin-top: 80px;
+	padding: 20px 0 100px;
 	text-align: center;
 	color: #777;
 	font-size: 0.9rem;
-}
+	position: relative;
+	z-index: 100;
+	background: #000000;
 
-.footer a
-{
-	color: #ff6666;
-	text-decoration: none;
-}
+	a
+	{
+		color: #ff6666;
+		text-decoration: none;
+		transition: all 0.3s ease;
 
-.footer a:hover
-{
-	text-decoration: underline;
+		&:hover
+		{
+			text-decoration: underline;
+			filter: brightness(1.2);
+		}
+	}
+
+	@media (min-width: 769px)
+	{
+		padding-bottom: 20px;
+		margin-top: 120px;
+	}
 }
