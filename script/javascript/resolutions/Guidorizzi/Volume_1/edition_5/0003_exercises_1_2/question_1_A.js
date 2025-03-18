@@ -46,7 +46,57 @@ function initThreeJS(containerId) {
                 numberLine.add(marker);
                 this.createNumber(x);
             }
+
+			// Adiciona o marcador em x = 1.5
+			const marker = new THREE.Mesh(markerGeometry, markerMaterial);
+			marker.position.set(1.5, 0, 0);
+			marker.rotation.x = Math.PI / 2;
+			numberLine.add(marker);
+
+			// Adiciona "3/2" no formato de fração
+			this.createFractionNumber(1.5, 3, 2);
         }
+
+		createFractionNumber(x, numerator, denominator) {
+			const loader = new THREE.FontLoader();
+			loader.load('https://cdn.jsdelivr.net/npm/three@0.128.0/examples/fonts/helvetiker_bold.typeface.json', font => {
+				// Material branco sem efeito metálico
+				const textMaterial = new THREE.MeshBasicMaterial({ color: 0xFF0000 });
+
+				// Criar numerador (número de cima)
+				const numeratorGeometry = new THREE.TextGeometry(numerator.toString(), {
+					size: 0.15, // Tamanho do numerador
+					height: 0.02,
+					font: font
+				});
+				const numeratorMesh = new THREE.Mesh(numeratorGeometry, textMaterial);
+				numeratorMesh.position.set(x - 0.08, -0.25, 0); // Posicionar numerador acima da linha
+
+				// Criar denominador (número de baixo)
+				const denominatorGeometry = new THREE.TextGeometry(denominator.toString(), {
+					size: 0.15, // Tamanho do denominador
+					height: 0.02,
+					font: font
+				});
+				const denominatorMesh = new THREE.Mesh(denominatorGeometry, textMaterial);
+				denominatorMesh.position.set(x - 0.08, -0.55, 0); // Posicionar denominador abaixo da linha
+
+				// Criar a linha divisória
+				const lineGeometry = new THREE.BufferGeometry().setFromPoints([
+					new THREE.Vector3(-0.1, 0.05, 0),
+					new THREE.Vector3(0.1, 0.05, 0)
+				]);
+				const lineMaterial = new THREE.LineBasicMaterial({ color: 0xffffff });
+				const fractionLine = new THREE.Line(lineGeometry, lineMaterial);
+				fractionLine.position.set(x, -0.4, 0); // Posiciona a linha entre numerador e denominador
+
+				// Adiciona à reta numérica
+				numberLine.add(numeratorMesh);
+				numberLine.add(denominatorMesh);
+				numberLine.add(fractionLine);
+			});
+		}
+
         createNumber(x) {
             const loader = new THREE.FontLoader();
             loader.load('https://cdn.jsdelivr.net/npm/three@0.128.0/examples/fonts/helvetiker_bold.typeface.json', font => {
@@ -185,6 +235,60 @@ function initThreeJS(containerId) {
         renderer.render(scene, camera);
     }
     animate();
+
+	// Variáveis para controle do arrasto
+	let isDragging = false;
+	let previousDragPosition = { x: 0, y: 0 };
+	let dragOffset = { x: 0, y: 0 };
+
+	// Registra os eventos de mouse no elemento de renderização
+	renderer.domElement.addEventListener('mousedown', (e) => {
+		isDragging = true;
+		previousDragPosition.x = e.clientX;
+		previousDragPosition.y = e.clientY;
+	});
+
+	renderer.domElement.addEventListener('mousemove', (e) => {
+		if (isDragging) {
+			const deltaX = e.clientX - previousDragPosition.x;
+			const deltaY = e.clientY - previousDragPosition.y;
+			// Ajusta o offset com um fator de sensibilidade (pode ser calibrado conforme necessário)
+			dragOffset.x += deltaX * 0.01;
+			// Inverte o deltaY para compensar a direção vertical da tela
+			dragOffset.y -= deltaY * 0.01;
+			previousDragPosition.x = e.clientX;
+			previousDragPosition.y = e.clientY;
+		}
+	});
+
+	renderer.domElement.addEventListener('mouseup', () => {
+		isDragging = false;
+	});
+
+	renderer.domElement.addEventListener('mouseleave', () => {
+		isDragging = false;
+	});
+
+	// Monkey-patch em camera.lookAt para incluir o dragOffset sem modificar as chamadas existentes
+	const originalLookAt = camera.lookAt.bind(camera);
+	camera.lookAt = function(...args) {
+		if (args.length === 1 && args[0] instanceof THREE.Vector3) {
+			const target = args[0];
+			originalLookAt(new THREE.Vector3(
+				target.x + dragOffset.x,
+				target.y + dragOffset.y,
+				target.z
+			));
+		} else if (args.length >= 3) {
+			originalLookAt(
+				args[0] + dragOffset.x,
+				args[1] + dragOffset.y,
+				args[2]
+			);
+		} else {
+			originalLookAt(...args);
+		}
+	};
 
     // Função de cleanup que também remove o listener de zoom, se necessário
     return {
