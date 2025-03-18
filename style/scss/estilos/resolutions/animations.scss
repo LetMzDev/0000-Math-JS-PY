@@ -1,3 +1,9 @@
+
+.temas
+{
+	background: black;
+}
+
 #animationContainer
 {
 	position: relative;
@@ -11,3 +17,81 @@ canvas
 {
 	display: block;
 }
+
+// Reta Interativa
+.interactive-graphic {
+	cursor: pointer;
+	transition: transform 0.3s ease;
+	
+	&:hover {
+	  transform: scale(1.02);
+	  box-shadow: 0 0 15px rgba(139, 0, 0, 0.5);
+	}
+  }
+  
+  #retaModal {
+	.modal-dialog {
+		max-width: 98vw;  // Aumenta a largura máxima
+		width: 98vw;      // Ocupa 98% da largura da viewport
+		margin: 0 auto;   // Centraliza
+		
+		.modal-content {
+		  width: 100%;
+		  min-height: 90vh;  // Mantém a altura
+		}
+	  }
+    .modal-body {
+		overflow: hidden;
+        cursor: grab;
+		overscroll-behavior: contain; // Evita scroll da página durante o zoom
+        -webkit-overflow-scrolling: touch;
+        
+        &:active {
+            cursor: grabbing;
+        }
+
+		canvas {
+			touch-action: none;
+			image-rendering: -moz-crisp-edges;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            image-rendering: pixelated;
+		}
+        
+        #animationContainerFullscreen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+			transform-origin: center center;
+            transition: transform 0.1s ease-out;
+			transform: translateZ(0); // Aceleração de hardware
+            backface-visibility: hidden;
+            perspective: 1000px;
+        }
+    }
+}
+
+#animationContainer, #animationContainerFullscreen {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    
+    canvas {
+        width: 100% !important;
+        height: 100% !important;
+        touch-action: none;
+    }
+}
+
+
+  
+  // Ajustes de performance
+  @media (max-width: 768px) {
+	.interactive-graphic {
+	  #animationContainer {
+		height: 300px !important;
+	  }
+	}
+  }

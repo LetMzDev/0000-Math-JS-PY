@@ -13,11 +13,6 @@
     <script src = "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/FontLoader.js"></script>
 	<!-- Custom CSS -->
 	<link rel = "stylesheet" href = "../../../style/css/main_steps.css">
-
-	<style>
-        /* Estilos para a animação */
-        
-    </style>
 </head>
 
 <body>
@@ -96,10 +91,10 @@
 							</figure>
 						</article>
 
-						<article class = "step"> <!--  Reta Numérica  -->
-							<h5><i class = "fas fa-chart-line"></i> Reta Numérica Interativa:</h5>
-							<div id = "animationContainer"></div>
-						</article>
+						<article class="step interactive-graphic" onclick="abrirModalReta()">
+							<h5><i class="fas fa-chart-line"></i> Reta Numérica Interativa (Clique para expandir)</h5>
+							<div id="animationContainer"></div>
+						  </article>
 					</section>
 				</div>
 			</div>
@@ -128,16 +123,33 @@
 	</div>
 </section>
 
+<!-- Modal Fullscreen -->
+<div class="modal fade" id="retaModal" tabindex="-1" aria-labelledby="retaModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-custom-width">
+	  <div class="modal-content">
+		<div class="modal-header bg-dark">
+		  <h5 class="modal-title text-danger" id="retaModalLabel"><i class="fas fa-expand-arrows-alt"></i> Visualização em Tela Cheia</h5>
+		  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body temas p-0">
+		  <div id="animationContainerFullscreen" class="h-100 w-10"></div>
+		</div>
+	  </div>
+	</div>
+  </div>
+
 	<div class = "footer">
 		<p>Criado por <a href = "#" target="_blank">RafaMZ</a></p>
 	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 	<!-- jsPDF e canvg -->
 	<script src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 	<script src = "https://cdnjs.cloudflare.com/ajax/libs/canvg/3.0.0/canvg.min.js"></script>
 
 	<script type = "module" src = "../../../script/javascript/main_step.js"></script>
-	<script src = "../../../script/javascript/resolutions/Guidorizzi/Volume_1/edition_5/0003_exercises_1_2/question_1_A.js">
-</script>
+	<script src = "../../../script/javascript/resolutions/Guidorizzi/Volume_1/edition_5/0003_exercises_1_2/question_1_A.js"></script>
+	<script src="../../../script/javascript/imagens/reta-interativa.js"></script>
 </body>
 </html>

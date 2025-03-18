@@ -338,6 +338,10 @@ html {
   }
 }
 
+.temas {
+  background: black;
+}
+
 #animationContainer {
   position: relative;
   width: 1100px;
@@ -349,6 +353,62 @@ canvas {
   display: block;
 }
 
+.interactive-graphic {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.interactive-graphic:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(139, 0, 0, 0.5);
+}
+
+#retaModal .modal-dialog {
+  max-width: 98vw;
+  width: 98vw;
+  margin: 0 auto;
+}
+#retaModal .modal-dialog .modal-content {
+  width: 100%;
+  min-height: 90vh;
+}
+#retaModal .modal-body {
+  overflow: hidden;
+  cursor: grab;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+#retaModal .modal-body:active {
+  cursor: grabbing;
+}
+#retaModal .modal-body canvas {
+  touch-action: none;
+}
+#retaModal .modal-body #animationContainerFullscreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform-origin: center center;
+  transition: transform 0.1s ease-out;
+}
+
+#animationContainer, #animationContainerFullscreen {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+#animationContainer canvas, #animationContainerFullscreen canvas {
+  width: 100% !important;
+  height: 100% !important;
+  touch-action: none;
+}
+
+@media (max-width: 768px) {
+  .interactive-graphic #animationContainer {
+    height: 300px !important;
+  }
+}
 @media (max-width: 768px) {
   .container {
     padding: 0 15px;
