@@ -85,13 +85,37 @@ canvas
     }
 }
 
-
+.exibir-graph-mobile
+{
+	display: none;
+}
   
   // Ajustes de performance
   @media (max-width: 768px) {
 	.interactive-graphic {
 	  #animationContainer {
 		height: 300px !important;
+	  }
+	}
+	.exibir-graph-pc
+	{
+		display: none;
+	}
+
+	.exibir-graph-mobile {
+		display: block;
+	  .link-mobile {
+		color: #FFD700 !important;
+		transition: color 0.3s ease;
+  
+		&:hover {
+		  color: #FFEA00 !important;
+		}
+  
+		i.fas {
+		  color: inherit;
+		  filter: drop-shadow(0 2px 2px rgba(255, 215, 0, 0.3));
+		}
 	  }
 	}
   }

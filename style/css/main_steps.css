@@ -382,6 +382,10 @@ canvas {
 }
 #retaModal .modal-body canvas {
   touch-action: none;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
 }
 #retaModal .modal-body #animationContainerFullscreen {
   position: absolute;
@@ -391,6 +395,9 @@ canvas {
   bottom: 0;
   transform-origin: center center;
   transition: transform 0.1s ease-out;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 #animationContainer, #animationContainerFullscreen {
@@ -404,9 +411,30 @@ canvas {
   touch-action: none;
 }
 
+.exibir-graph-mobile {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .interactive-graphic #animationContainer {
     height: 300px !important;
+  }
+  .exibir-graph-pc {
+    display: none;
+  }
+  .exibir-graph-mobile {
+    display: block;
+  }
+  .exibir-graph-mobile .link-mobile {
+    color: #FFD700 !important;
+    transition: color 0.3s ease;
+  }
+  .exibir-graph-mobile .link-mobile:hover {
+    color: #FFEA00 !important;
+  }
+  .exibir-graph-mobile .link-mobile i.fas {
+    color: inherit;
+    filter: drop-shadow(0 2px 2px rgba(255, 215, 0, 0.3));
   }
 }
 @media (max-width: 768px) {

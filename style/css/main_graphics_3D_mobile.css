@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #1a1a1a;
+}
+
+#animationContainer {
+  width: 100vw;
+  height: 100vh;
+}
+
+/*
+sass style/scss/main_graphics_3D_mobile.scss style/css/main_graphics_3D_mobile.css
+*/
+
+/*# sourceMappingURL=main_graphics_3D_mobile.css.map */
