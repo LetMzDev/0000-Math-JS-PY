@@ -289,31 +289,7 @@ function initThreeJS ( containerId )
 
 	// ------------------------------------ MONKEY-PATCH EM camera.lookAt ------------------------------------
 
-	const originalLookAt = camera.lookAt.bind ( camera );
-	camera.lookAt = function ( ...args )
-	{
-		if ( args.length === 1 && args [ 0 ] instanceof THREE.Vector3 )
-		{
-			const target = args [ 0 ];
-			originalLookAt ( new THREE.Vector3 (
-				target.x + dragOffset.x,
-				target.y + dragOffset.y,
-				target.z
-			));
-		}
-
-		else if ( args.length >= 3 )
-		{
-			originalLookAt (
-				args [ 0 ] + dragOffset.x,
-				args [ 1 ] + dragOffset.y,
-				args [ 2 ]
-			);
-		}
-
-		else
-			originalLookAt ( ...args );
-	};
+	const restoreLookAt = createLookAtPatch ( camera, dragOffset );
 
 	// ------------------------------------ FUNÇÃO DE CLEANUP ------------------------------------
 
@@ -333,6 +309,7 @@ function initThreeJS ( containerId )
 			dragHandler.cleanup();
 			renderer.dispose();
 			container.removeChild ( renderer.domElement );
+			restoreLookAt();
 		}
 	};
 }
