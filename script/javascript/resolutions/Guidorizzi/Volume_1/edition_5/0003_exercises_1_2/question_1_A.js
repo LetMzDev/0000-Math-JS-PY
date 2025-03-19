@@ -247,29 +247,10 @@ function initThreeJS ( containerId )
 
 	// ------------------------------------ CONTROLE DE ZOOM ------------------------------------
 
-	let zoomFactor = 1;
-	const ZOOM_SPEED = 0.1;
-	const MIN_ZOOM = 0.5;
-	const MAX_ZOOM = 5;
+	let cleanupZoom; // Variável para armazenar a função de cleanup
 
-	function handleMouseWheel ( event )
-	{
-		event.preventDefault();
-
-		const modal = document.getElementById ( 'retaModal' );
-
-		if ( modal && !modal.classList.contains ( 'show' ))
-			return;
-
-		const delta = Math.sign ( event.deltaY );
-		zoomFactor += delta * ZOOM_SPEED;
-		zoomFactor = Math.min ( Math.max ( zoomFactor, MIN_ZOOM ), MAX_ZOOM );
-
-		camera.position.z = initialCameraZ * zoomFactor;
-	}
-
-	if ( containerId === 'animationContainerFullscreen' )
-		container.addEventListener ( 'wheel', handleMouseWheel, { passive: false });
+	if ( containerId === 'animationContainerFullscreen')
+		cleanupZoom = createZoomHandler ( camera, container, initialCameraZ );
 
 	// ------------------------------------ RESIZE HANDLER ------------------------------------
 
@@ -379,8 +360,8 @@ function initThreeJS ( containerId )
 		{ 
 			window.removeEventListener ( 'resize', resizeHandler );
 
-			if ( containerId === 'animationContainerFullscreen' )
-				container.removeEventListener ( 'wheel', handleMouseWheel );
+			if ( cleanupZoom )
+				cleanupZoom();
 
 			renderer.dispose();
 			container.removeChild ( renderer.domElement );
