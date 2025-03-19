@@ -284,40 +284,8 @@ function initThreeJS ( containerId )
 
 	// ------------------------------------ CONTROLE DE ARRASTE (DRAG) ------------------------------------
 
-	let isDragging = false;
-	let previousDragPosition = { x: 0, y: 0 };
-	let dragOffset = { x: 0, y: 0 };
-
-	renderer.domElement.addEventListener ( 'mousedown', (e) =>
-	{
-		isDragging = true;
-		previousDragPosition.x = e.clientX;
-		previousDragPosition.y = e.clientY;
-	});
-
-	renderer.domElement.addEventListener ( 'mousemove', (e) =>
-	{
-		if ( isDragging )
-		{
-			const deltaX = e.clientX - previousDragPosition.x;
-			const deltaY = e.clientY - previousDragPosition.y;
-
-			dragOffset.x += deltaX * 0.01;
-			dragOffset.y -= deltaY * 0.01;
-			previousDragPosition.x = e.clientX;
-			previousDragPosition.y = e.clientY;
-		}
-	});
-
-	renderer.domElement.addEventListener ( 'mouseup', () =>
-	{
-		isDragging = false;
-	});
-
-	renderer.domElement.addEventListener ( 'mouseleave', () =>
-	{
-		isDragging = false;
-	});
+	const dragHandler = createDragHandler ( renderer.domElement );
+	const dragOffset = dragHandler.dragOffset;
 
 	// ------------------------------------ MONKEY-PATCH EM camera.lookAt ------------------------------------
 
@@ -341,7 +309,6 @@ function initThreeJS ( containerId )
 				args [ 1 ] + dragOffset.y,
 				args [ 2 ]
 			);
-
 		}
 
 		else
@@ -355,7 +322,7 @@ function initThreeJS ( containerId )
 		camera,
 		renderer,
 		animate,
-
+	
 		cleanup: () =>
 		{ 
 			window.removeEventListener ( 'resize', resizeHandler );
@@ -363,6 +330,7 @@ function initThreeJS ( containerId )
 			if ( cleanupZoom )
 				cleanupZoom();
 
+			dragHandler.cleanup();
 			renderer.dispose();
 			container.removeChild ( renderer.domElement );
 		}
