@@ -1,3 +1,6 @@
+@charset "UTF-8";
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
 body {
   margin: 0;
   overflow: hidden;
@@ -5,14 +8,33 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #1a1a1a;
+  background-color: #000000;
+  font-size: 16px;
 }
 
 #animationContainer {
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 50px);
 }
 
+/* Estilo para a mensagem */
+.texto-aviso {
+  display: none;
+  position: fixed;
+  top: 10px;
+  background-color: rgba(35, 35, 35, 0.2);
+  color: antiquewhite;
+  padding: 10px;
+  border-radius: 10px;
+  z-index: 10;
+}
+
+/* Mostrar apenas em mobile e orientação portrait */
+@media (max-width: 768px) and (orientation: portrait) {
+  .texto-aviso {
+    display: inline-block;
+  }
+}
 /*
 sass style/scss/main_graphics_3D_mobile.scss style/css/main_graphics_3D_mobile.css
 */
