@@ -1,6 +1,6 @@
 body
 {
-	background-color: #121212;
+	background-color: #000000;
 	color: #ffffff;
 	font-family: 'Roboto', sans-serif;
 }
@@ -13,7 +13,7 @@ body
 
 .card
 {
-	background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+	background: linear-gradient(145deg, #000000, #000000);
 	border: none;
 	border-radius: 15px;
 	box-shadow: 3px 3px 10px #00000088, -3px -3px 10px #1a1a1a88;
@@ -48,7 +48,7 @@ h4
 	font-size: 1.4rem;
 	margin-bottom: 20px;
 	padding: 15px;
-	background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+	background: linear-gradient(145deg, #000000, #1a1a1a);
 	border-radius: 10px;
 	border-left: 4px solid #8b0000;
 	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);

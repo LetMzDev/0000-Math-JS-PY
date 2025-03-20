@@ -9,8 +9,8 @@
 	<script src = "https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 	<script id = "MathJax-script" async src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 	<!-- Three.js -->
-    <script src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src = "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/FontLoader.js"></script>
+	<script src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+	<script src = "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/FontLoader.js"></script>
 	<!-- Custom CSS -->
 	<link rel = "stylesheet" href = "../../../style/css/main_steps.css">
 </head>
@@ -57,13 +57,47 @@
 						<article class = "step">  <!--  Passo 3  -->
 							<h5><i class = "fas fa-pencil-alt"></i> Passo 3: Multiplica ambos os lados por \( -1 \)</h5>
 							<p>Ao multiplicar por \( -1 \), o sinal da desigualdade se inverte ( propriedade das inequações ):</p>
-							<p>\[
-								(-2x > 4) \times (-1)
-							\]</p>
-							<p>Após a multiplicação:</p>
-							<p>\[
-								2x < -4
-							\]</p>
+
+							<!-- Caixa da Propriedade Matemática -->
+							<div class="math-property">
+								<div class="property-icon">🌟</div>
+								<div class="property-text">
+									<p><strong>Propriedade das Inequações:</strong></p>
+									<p>
+										Quando multiplicamos ou dividimos uma inequação por um número **negativo**, devemos **inverter o sinal da desigualdade**. Isso acontece porque os números negativos trocam a ordem na reta numérica.
+									</p>
+									<p>🔹 Propriedade:</p>
+									<p class="mathjax">
+										Se \( a > b \) e \( c < 0 \), então \( a \cdot c < b \cdot c \).
+									</p>
+
+									<p>🔹 Exemplo numérico:</p>
+									<p class="mathjax">
+										Se \( 3 > 2 \), então ao multiplicar por \( -1 \):  
+										\[
+										3 \times (-1) < 2 \times (-1) \Rightarrow -3 < -2
+										\]
+									</p>
+								</div>
+							</div>
+
+								<p>Multiplicando ambos os lados por \( -1 \):</p>
+
+								<p>\[
+									(-1) \cdot (-2x) > (-1) \cdot 4
+								\]</p>
+
+								<p>Invertendo o sinal da desigualdade:</p>
+
+								<p>\[
+									(-1) \cdot (-2x) < (-1) \cdot 4
+								\]</p>
+
+								<p>Simplificando:</p>
+
+								<p>\[
+									2x < -4
+								\]</p>
 						</article>
 
 						<article class = "step">  <!--  Passo 4  -->
@@ -80,13 +114,13 @@
 					</section>
 
 					<section> <!--  Solução  -->
-						<article class = "step">  <!--  Resposta  -->
-							<h5><i class = "fas fa-check-circle"></i> Solução Final:</h5>
-							<p class = "text-center">\[
-								x < -2
-							\]</p>
-							<p class = "text-muted text-center">Notação de intervalo: \( \left(-\infty, -2\right) \)</p>
-							<p class = "text-muted text-center">ou em linguagem natural: todos os números reais menores que \( -2 \).</p>
+						<article class="step solution-final">
+							<h5><i class="fas fa-check-circle"></i> Solução Final</h5>
+							<p class="text-center">\[ x < -2 \]</p>
+							<p class="text-muted text-center">
+							Notação de intervalo: \( (-\infty, -2) \)<br>
+							<small>Todos os valores à esquerda de -2 na reta real</small>
+							</p>
 						</article>
 
 						<article class = "step"> <!--  Reta Numérica  -->

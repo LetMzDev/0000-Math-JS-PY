@@ -1,0 +1,64 @@
+.math-property
+{
+	background: #000000;
+	border: 1px solid rgba(250, 233, 140, 0.512);
+	border-radius: 12px;
+	padding: 22px;
+	margin: 22px 0;
+	position: relative;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3),
+		inset 0 3px 6px rgba(0, 0, 0, 0.15);
+	transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+	&::before
+	{
+		content: '';
+		position: absolute;
+		left: -1px;
+		top: 0;
+		height: 100%;
+		width: 3px;
+		background: linear-gradient(to bottom,
+			rgba(255, 218, 102, 0.7),
+			rgba(255, 218, 102, 0));
+		border-radius: 2px;
+	}
+
+	&:hover
+	{
+		transform: translateY(-3px);
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4),
+			inset 0 4px 8px rgba(0, 0, 0, 0.2);
+	}
+}
+
+.property-icon
+{
+	font-size: 2.2rem;
+	color: #ffda66;
+	float: left;
+	margin-right: 18px;
+	text-shadow: 0 0 6px rgba(255, 218, 102, 0.5);
+}
+
+.property-text
+{
+	overflow: hidden;
+	color: #e0e0e0;
+	line-height: 1.6;
+
+	strong
+	{
+		color: #ffda66;
+		font-family: 'Poppins', sans-serif;
+		font-weight: 600;
+		text-shadow: 0 0 4px rgba(255, 218, 102, 0.3);
+	}
+
+	.mathjax,
+	.MathJax
+	{
+		font-size: 1.1em !important;
+		filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.3));
+	}
+}
