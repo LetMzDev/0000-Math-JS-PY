@@ -96,14 +96,13 @@
 							<div id = "animationContainer"></div>
 						</article>
 
-						<article class="step exibir-graph-mobile">
+						<article class = "step exibir-graph-mobile">
 							<h5>
-							  <a href="./001_graphic3D_1.html" class="link-mobile casa">
-								<i class="fas fa-chart-line "></i> Reta Numérica Interativa (Clique para visualizar animação)
-							  </a>
+								<a href = "./001_graphic3D_1.html" class = "link-mobile casa">
+									<i class = "fas fa-chart-line "></i> Reta Numérica Interativa (Clique para visualizar animação)
+								</a>
 							</h5>
-						  </article>
-						  
+						</article>
 					</section>
 				</div>
 			</div>
@@ -133,19 +132,21 @@
 </section>
 
 <!-- Modal Fullscreen -->
-<div class="modal fade" id="retaModal" tabindex="-1" aria-labelledby="retaModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-custom-width">
-	  <div class="modal-content">
-		<div class="modal-header bg-dark">
-		  <h5 class="modal-title text-danger" id="retaModalLabel"><i class="fas fa-expand-arrows-alt"></i> Visualização em Tela Cheia</h5>
-		  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+<div class = "modal fade" id = "retaModal" tabindex = "-1" aria-labelledby = "retaModalLabel" aria-hidden = "true">
+	<div class = "modal-dialog modal-custom-width">
+		<div class = "modal-content">
+			<div class = "modal-header bg-dark">
+				<h5 class = "modal-title text-danger" id = "retaModalLabel">
+					<i class = "fas fa-expand-arrows-alt"></i> Visualização em Tela Cheia
+				</h5>
+				<button type = "button" class = "btn-close btn-close-white" data-bs-dismiss = "modal" aria-label = "Close"></button>
+			</div>
+			<div class = "modal-body temas p-0">
+				<div id = "animationContainerFullscreen" class = "h-100 w-10"></div>
+			</div>
 		</div>
-		<div class="modal-body temas p-0">
-		  <div id="animationContainerFullscreen" class="h-100 w-10"></div>
-		</div>
-	  </div>
 	</div>
-  </div>
+</div>
 
 	<div class = "footer">
 		<p>Criado por <a href = "#" target="_blank">RafaMZ</a></p>
@@ -159,10 +160,11 @@
 
 	<script type = "module" src = "../../../script/javascript/main_step.js"></script>
 	<script src = "../../../script/javascript/resolutions/Guidorizzi/Volume_1/edition_5/0003_exercises_1_2/question_1_A.js"></script>
-	<script src = "../../../script/javascript/resolutions/Guidorizzi/Volume_1/edition_5/0003_exercises_1_2/zoom.js"></script>
-	<script src = "../../../script/javascript/resolutions/Guidorizzi/Volume_1/edition_5/0003_exercises_1_2/move.js"></script>
-	<script src = "../../../script/javascript/resolutions/Guidorizzi/Volume_1/edition_5/0003_exercises_1_2/lookAtPatch.js"></script>
 
-	<script src="../../../script/javascript/imagens/reta-interativa.js"></script>
+	<script src = "../../../script/javascript/utils_3D/zoom.js"></script>
+	<script src = "../../../script/javascript/utils_3D/move.js"></script>
+	<script src = "../../../script/javascript/utils_3D/lookAtPatch.js"></script>
+
+	<script src = "../../../script/javascript/imagens/reta-interativa.js"></script>
 </body>
 </html>
