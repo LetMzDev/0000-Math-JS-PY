@@ -1,4 +1,3 @@
-
 .temas
 {
 	background: black;
@@ -9,7 +8,6 @@
 	position: relative;
 	width: 1100px;
 	height: 300px;
-	
 	margin: 20px 0;
 }
 
@@ -19,103 +17,123 @@ canvas
 }
 
 // Reta Interativa
-.interactive-graphic {
+.interactive-graphic
+{
 	cursor: pointer;
 	transition: transform 0.3s ease;
-	
-	&:hover {
-	  transform: scale(1.02);
-	  box-shadow: 0 0 15px rgba(139, 0, 0, 0.5);
-	}
-  }
-  
-  #retaModal {
-	.modal-dialog {
-		max-width: 98vw;  // Aumenta a largura máxima
-		width: 98vw;      // Ocupa 98% da largura da viewport
-		margin: 0 auto;   // Centraliza
-		
-		.modal-content {
-		  width: 100%;
-		  min-height: 90vh;  // Mantém a altura
-		}
-	  }
-    .modal-body {
-		overflow: hidden;
-        cursor: grab;
-		overscroll-behavior: contain; // Evita scroll da página durante o zoom
-        -webkit-overflow-scrolling: touch;
-        
-        &:active {
-            cursor: grabbing;
-        }
 
-		canvas {
-			touch-action: none;
-			image-rendering: -moz-crisp-edges;
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
-            image-rendering: pixelated;
-		}
-        
-        #animationContainerFullscreen {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-			transform-origin: center center;
-            transition: transform 0.1s ease-out;
-			transform: translateZ(0); // Aceleração de hardware
-            backface-visibility: hidden;
-            perspective: 1000px;
-        }
-    }
+	&:hover
+	{
+		transform: scale(1.02);
+		box-shadow: 0 0 15px rgba(139, 0, 0, 0.5);
+	}
 }
 
-#animationContainer, #animationContainerFullscreen {
-    position: relative;
-    width: 100%;
-    height: 300px;
-    
-    canvas {
-        width: 100% !important;
-        height: 100% !important;
-        touch-action: none;
-    }
+#retaModal
+{
+	.modal-dialog
+	{
+		max-width: 98vw;
+		width: 98vw;
+		margin: 0 auto;
+
+		.modal-content
+		{
+			width: 100%;
+			min-height: 90vh;
+		}
+	}
+	.modal-body
+	{
+		overflow: hidden;
+		cursor: grab;
+		overscroll-behavior: contain;
+		-webkit-overflow-scrolling: touch;
+
+		&:active
+		{
+			cursor: grabbing;
+		}
+
+		canvas
+		{
+			touch-action: none;
+			image-rendering: -moz-crisp-edges;
+			image-rendering: -webkit-optimize-contrast;
+			image-rendering: crisp-edges;
+			image-rendering: pixelated;
+		}
+
+		#animationContainerFullscreen
+		{
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			transform-origin: center center;
+			transition: transform 0.1s ease-out;
+			transform: translateZ(0);
+			backface-visibility: hidden;
+			perspective: 1000px;
+		}
+	}
+}
+
+#animationContainer, #animationContainerFullscreen
+{
+	position: relative;
+	width: 100%;
+	height: 300px;
+
+	canvas
+	{
+		width: 100% !important;
+		height: 100% !important;
+		touch-action: none;
+	}
 }
 
 .exibir-graph-mobile
 {
 	display: none;
 }
-  
-  // Ajustes de performance
-  @media (max-width: 768px) {
-	.interactive-graphic {
-	  #animationContainer {
-		height: 300px !important;
-	  }
+
+// Ajustes de performance
+@media (max-width: 768px)
+{
+	.interactive-graphic
+	{
+		#animationContainer
+		{
+			height: 300px !important;
+		}
 	}
+
 	.exibir-graph-pc
 	{
 		display: none;
 	}
 
-	.exibir-graph-mobile {
+	.exibir-graph-mobile
+	{
 		display: block;
-	  .link-mobile {
-		color: #FFD700 !important;
-		transition: color 0.3s ease;
-  
-		&:hover {
-		  color: #FFEA00 !important;
+
+		.link-mobile
+		{
+			color: #FFD700 !important;
+			transition: color 0.3s ease;
+
+			&:hover
+			{
+				color: #FFEA00 !important;
+			}
+
+			i.fas
+			{
+				color: inherit;
+				filter: drop-shadow(0 2px 2px rgba(255, 215, 0, 0.3));
+			}
 		}
-  
-		i.fas {
-		  color: inherit;
-		  filter: drop-shadow(0 2px 2px rgba(255, 215, 0, 0.3));
-		}
-	  }
 	}
-  }
+}

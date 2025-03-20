@@ -17,7 +17,8 @@
 	{
 		content: '';
 		position: absolute;
-		background: linear-gradient(90deg, 
+		background: linear-gradient(
+			90deg, 
 			rgba(220,53,69,0.8) 0%, 
 			rgba(100,195,49,0.6) 50%, 
 			rgba(220,53,69,0.8) 100%);
@@ -42,11 +43,12 @@
 		position: relative;
 		padding: 0 20px;
 		background: linear-gradient(
-		90deg,
-		#dc3545 25%,
-		#c3ad31 50%,
-		#dc3545 75%
+			90deg,
+			#dc3545 25%,
+			#c3ad31 50%,
+			#dc3545 75%
 		);
+
 		background-size: 200% auto;
 		-webkit-background-clip: text;
 		background-clip: text;
