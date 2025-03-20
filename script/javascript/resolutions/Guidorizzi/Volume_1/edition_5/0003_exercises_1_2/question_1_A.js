@@ -21,7 +21,7 @@ function initThreeJS ( containerId )
 	const ambientLight = new THREE.AmbientLight ( 0x404040 );
 	scene.add ( ambientLight );
 
-	const directionalLight = new THREE.DirectionalLight ( 0xff2200, 0.3 );
+	const directionalLight = new THREE.DirectionalLight ( 0xffffff, 0.3 );
 	directionalLight.position.set ( 0, 10, 5 );
 	scene.add ( directionalLight );
 
@@ -31,12 +31,45 @@ function initThreeJS ( containerId )
 
 	const axisGeometry = new THREE.BufferGeometry().setFromPoints
 	([
-		new THREE.Vector3 ( -7, 0, 0 ),
-		new THREE.Vector3 ( 7, 0, 0 )
+		new THREE.Vector3 ( -6, 0, 0 ),
+		new THREE.Vector3 ( 6, 0, 0 )
 	]);
 
 	const axis = new THREE.Line ( axisGeometry, new THREE.LineBasicMaterial ({ color: 0x00FFFF, linewidth: 20 }));
 	numberLine.add ( axis );
+
+	// ---------------------------------------- Rótulo "x"  ----------------------------------------
+	const loader = new THREE.FontLoader();
+	loader.load ( 'https://cdn.jsdelivr.net/npm/three@0.128.0/examples/fonts/helvetiker_bold.typeface.json', font =>
+	{
+		const textGeometry = new THREE.TextGeometry ( 'x',
+		{
+			size: 0.3,
+			height: 0.02,
+			font: font
+		});
+
+		const textMaterial = new THREE.MeshStandardMaterial (
+		{
+			color: 0x00FFFF,
+			emissive: 0x00FFFF,
+			metalness: 0.7,
+			roughness: 0.3
+		});
+
+		const text = new THREE.Mesh ( textGeometry, textMaterial );
+		text.position.set ( 6.2, -0.1, 0 );
+		numberLine.add ( text );
+
+		// Adicionando a seta**
+		const arrowHeadGeometry = new THREE.ConeGeometry ( 0.1, 0.3, 32 );
+		const arrowHeadMaterial = new THREE.MeshBasicMaterial ({ color: 0x00FFFF });
+		const arrowHead = new THREE.Mesh ( arrowHeadGeometry, arrowHeadMaterial );
+
+		arrowHead.position.set ( 6, 0, 0 );
+		arrowHead.rotation.z = -Math.PI / 2;
+		numberLine.add ( arrowHead );
+	});
 
 	// ------------------------------------ CLASSE PARA CRIAÇÃO DOS MARCADORES E NÚMEROS ------------------------------------
 
@@ -170,11 +203,10 @@ function initThreeJS ( containerId )
 
 			for ( let x = -7; x <= 1.5; x += 0.05 )
 			{
-				positions.push ( x, Math.sin(x * 2) * 0.05, 0 );
-				const intensity = 1 - ( x + 5 ) / 6.5;
+				positions.push ( x, Math.sin ( x * 2 ) * 0.05, 0 );
 				const red = 1.0;
-				const green = intensity;
-				const blue = intensity;
+				const green = 0;
+				const blue = 0;
 				colors.push ( red, green, blue );
 			}
 
