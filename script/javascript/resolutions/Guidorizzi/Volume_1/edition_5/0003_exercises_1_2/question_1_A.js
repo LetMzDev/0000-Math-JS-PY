@@ -18,30 +18,38 @@ function initThreeJS ( containerId )
 
 	// ------------------------------------ SISTEMA DE ILUMINAÇÃO ------------------------------------
 
+	// --- Criação da Luz Ambiente ---
 	const ambientLight = new THREE.AmbientLight ( 0x404040 );
 	scene.add ( ambientLight );
 
+	// --- Criação da Luz Direcional ---
 	const directionalLight = new THREE.DirectionalLight ( 0xffffff, 0.3 );
 	directionalLight.position.set ( 0, 10, 5 );
 	scene.add ( directionalLight );
 
 	// ------------------------------------ LINHA NUMÉRICA PRINCIPAL ------------------------------------
 
+	// --- Criação do Grupo da Linha Numérica ---
 	const numberLine = new THREE.Group();
 
+	// --- Criação da Geometria do Eixo ---
 	const axisGeometry = new THREE.BufferGeometry().setFromPoints
 	([
 		new THREE.Vector3 ( -6, 0, 0 ),
 		new THREE.Vector3 ( 6, 0, 0 )
 	]);
 
+	// --- Criação do Eixo ---
 	const axis = new THREE.Line ( axisGeometry, new THREE.LineBasicMaterial ({ color: 0x00FFFF, linewidth: 20 }));
 	numberLine.add ( axis );
 
 	// ---------------------------------------- Rótulo "x"  ----------------------------------------
+
+	// --- Carregamento da Fonte ---
 	const loader = new THREE.FontLoader();
 	loader.load ( 'https://cdn.jsdelivr.net/npm/three@0.128.0/examples/fonts/helvetiker_bold.typeface.json', font =>
 	{
+		// --- Criação da Geometria do Texto ---
 		const textGeometry = new THREE.TextGeometry ( 'x',
 		{
 			size: 0.3,
@@ -49,6 +57,7 @@ function initThreeJS ( containerId )
 			font: font
 		});
 
+		// --- Criação do Material do Texto ---
 		const textMaterial = new THREE.MeshStandardMaterial (
 		{
 			color: 0x00FFFF,
@@ -57,11 +66,12 @@ function initThreeJS ( containerId )
 			roughness: 0.3
 		});
 
+		// --- Criação do Mesh do Texto ---
 		const text = new THREE.Mesh ( textGeometry, textMaterial );
 		text.position.set ( 6.2, -0.1, 0 );
 		numberLine.add ( text );
 
-		// Adicionando a seta**
+		// --- Adicionando a seta ---
 		const arrowHeadGeometry = new THREE.ConeGeometry ( 0.1, 0.3, 32 );
 		const arrowHeadMaterial = new THREE.MeshBasicMaterial ({ color: 0x00FFFF });
 		const arrowHead = new THREE.Mesh ( arrowHeadGeometry, arrowHeadMaterial );
@@ -83,8 +93,10 @@ function initThreeJS ( containerId )
 
 		createMarkers()
 		{
+			// --- Criação da Geometria do Marcador ---
 			const markerGeometry = new THREE.CylinderGeometry ( 0.03, 0.03, 0.5, 8 );
 
+			// --- Criação do Material do Marcador ---
 			const markerMaterial = new THREE.MeshStandardMaterial
 			({ 
 				color: 0xFFFFFF,
@@ -92,6 +104,7 @@ function initThreeJS ( containerId )
 				roughness: 0.8
 			});
 
+			// --- Loop para Criação dos Marcadores Inteiros ---
 			for ( let x = -5; x <= 5; x++ )
 			{
 				const marker = new THREE.Mesh ( markerGeometry, markerMaterial );
@@ -101,6 +114,7 @@ function initThreeJS ( containerId )
 				this.createNumber ( x );
 			}
 
+			// --- Criação do Marcador Fracionário ---
 			const marker = new THREE.Mesh ( markerGeometry, markerMaterial );
 			marker.position.set ( 1.5, 0, 0 );
 			marker.rotation.x = Math.PI / 2;
@@ -113,11 +127,14 @@ function initThreeJS ( containerId )
 
 		createFractionNumber ( x, numerator, denominator )
 		{
+			// --- Carregamento da Fonte ---
 			const loader = new THREE.FontLoader();
 			loader.load ( 'https://cdn.jsdelivr.net/npm/three@0.128.0/examples/fonts/helvetiker_bold.typeface.json', font =>
 			{
+				// --- Criação do Material do Texto ---
 				const textMaterial = new THREE.MeshBasicMaterial ({ color: 0xFF0000 });
 
+				// --- Criação da Geometria do Numerador ---
 				const numeratorGeometry = new THREE.TextGeometry ( numerator.toString(),
 				{
 					size: 0.15,
@@ -125,9 +142,11 @@ function initThreeJS ( containerId )
 					font: font
 				});
 
+				// --- Criação do Mesh do Numerador ---
 				const numeratorMesh = new THREE.Mesh ( numeratorGeometry, textMaterial );
 				numeratorMesh.position.set ( x - 0.08, -0.25, 0 );
 
+				// --- Criação da Geometria do Denominador ---
 				const denominatorGeometry = new THREE.TextGeometry ( denominator.toString(),
 				{
 					size: 0.15,
@@ -135,9 +154,11 @@ function initThreeJS ( containerId )
 					font: font
 				});
 
+				// --- Criação do Mesh do Denominador ---
 				const denominatorMesh = new THREE.Mesh ( denominatorGeometry, textMaterial );
 				denominatorMesh.position.set ( x - 0.08, -0.55, 0 );
 
+				// --- Criação da Linha de Fração ---
 				const lineGeometry = new THREE.BufferGeometry().setFromPoints
 				([
 					new THREE.Vector3 ( -0.1, 0.05, 0 ),
@@ -148,6 +169,7 @@ function initThreeJS ( containerId )
 				const fractionLine = new THREE.Line ( lineGeometry, lineMaterial );
 				fractionLine.position.set ( x, -0.4, 0 );
 
+				// --- Adição dos Elementos na Linha Numérica ---
 				numberLine.add ( numeratorMesh );
 				numberLine.add ( denominatorMesh );
 				numberLine.add ( fractionLine );
@@ -158,9 +180,11 @@ function initThreeJS ( containerId )
 
 		createNumber ( x )
 		{
+			// --- Carregamento da Fonte ---
 			const loader = new THREE.FontLoader();
 			loader.load ( 'https://cdn.jsdelivr.net/npm/three@0.128.0/examples/fonts/helvetiker_bold.typeface.json', font =>
 			{
+				// --- Criação da Geometria do Texto ---
 				const textGeometry = new THREE.TextGeometry ( x.toString(),
 				{
 					size: 0.25,
@@ -168,6 +192,7 @@ function initThreeJS ( containerId )
 					font: font
 				});
 
+				// --- Criação do Material do Texto ---
 				const textMaterial = new THREE.MeshStandardMaterial (
 				{
 					color: 0xffffff,
@@ -176,6 +201,7 @@ function initThreeJS ( containerId )
 					roughness: 0.3
 				});
 
+				// --- Criação do Mesh do Texto ---
 				const text = new THREE.Mesh ( textGeometry, textMaterial );
 				text.position.set ( x - 0.1, -0.4, 0 );
 				numberLine.add ( text );
@@ -197,6 +223,7 @@ function initThreeJS ( containerId )
 
 		createSolutionLine()
 		{
+			// --- Criação da Geometria da Linha de Solução ---
 			const geometry = new THREE.BufferGeometry();
 			const positions = [];
 			const colors = [];
@@ -213,6 +240,7 @@ function initThreeJS ( containerId )
 			geometry.setAttribute ( 'position', new THREE.Float32BufferAttribute ( positions, 3 ));
 			geometry.setAttribute ( 'color', new THREE.Float32BufferAttribute ( colors, 3 ));
 
+			// --- Criação do Material da Linha de Solução ---
 			const material = new THREE.LineBasicMaterial (
 			{
 				vertexColors: true,
@@ -220,14 +248,17 @@ function initThreeJS ( containerId )
 				transparent: true
 			});
 
+			// --- Criação da Linha de Solução ---
 			this.solutionLine = new THREE.Line ( geometry, material );
 			this.group.add ( this.solutionLine );
 		}
 
 		createCriticalPoint()
 		{
+			// --- Criação da Geometria do Ponto Crítico ---
 			const geometry = new THREE.RingGeometry ( 0.15, 0.2, 64 );
 
+			// --- Criação do Material do Ponto Crítico ---
 			const material = new THREE.MeshStandardMaterial (
 			{
 				color: 0x00ff00,
@@ -236,6 +267,7 @@ function initThreeJS ( containerId )
 				metalness: 0.7
 			});
 
+			// --- Criação do Ponto Crítico ---
 			this.point = new THREE.Mesh ( geometry, material );
 			this.point.position.set ( 1.5, 0, 0 );
 			this.group.add ( this.point );
@@ -243,12 +275,15 @@ function initThreeJS ( containerId )
 
 		update ( time )
 		{
+			// --- Atualização da Linha de Solução ---
 			const positions = this.solutionLine.geometry.attributes.position.array;
 
 			for ( let i = 0; i < positions.length; i += 3 )
 				positions [ i + 1 ] = Math.sin ( time * 2 + positions [ i ] * 3 ) * 0.1;
 
 			this.solutionLine.geometry.attributes.position.needsUpdate = true;
+
+			// --- Atualização do Ponto Crítico ---
 			this.point.rotation.z = time * 0.5;
 			this.point.scale.set (
 				1 + Math.sin ( time * 3 ) * 0.1,
@@ -260,17 +295,26 @@ function initThreeJS ( containerId )
 
 	// ------------------------------------ ADICIONA OS ELEMENTOS NA CENA ------------------------------------
 
+	// --- Adiciona a Linha Numérica na Cena ---
 	scene.add ( numberLine );
+
+	// --- Cria o Sistema Numérico ---
 	new NumberSystem();
+
+	// --- Cria a Solução Matemática ---
 	const solution = new MathematicalSolution();
+
+	// --- Configuração Inicial da Câmera ---
 	camera.position.set ( 0, 20, 5 );
 	const initialCameraZ = camera.position.z;
 	camera.lookAt ( 0, 0, 0 );
 
 	// ------------------------------------ CONTROLE DE CÂMERA BASEADO NO MOVIMENTO DO MOUSE ------------------------------------
 
+	// --- Variáveis para o Controle do Mouse ---
 	let mouseX = 0, mouseY = 0;
 
+	// --- Listener para o Movimento do Mouse ---
 	window.addEventListener ( 'mousemove', e =>
 	{
 		mouseX = ( e.clientX / window.innerWidth - 0.5 ) * 0.5;
@@ -281,11 +325,13 @@ function initThreeJS ( containerId )
 
 	let cleanupZoom; // Variável para armazenar a função de cleanup
 
+	// --- Criação do Handler de Zoom (Condicional) ---
 	if ( containerId === 'animationContainerFullscreen')
 		cleanupZoom = createZoomHandler ( camera, container, initialCameraZ );
 
 	// ------------------------------------ RESIZE HANDLER ------------------------------------
 
+	// --- Função para Redimensionamento ---
 	const resizeHandler = () =>
 	{
 		camera.aspect = container.clientWidth / container.clientHeight;
@@ -293,14 +339,17 @@ function initThreeJS ( containerId )
 		renderer.setSize ( container.clientWidth, container.clientHeight );
 	};
 
+	// --- Listener para o Evento de Redimensionamento ---
 	window.addEventListener ( 'resize', resizeHandler );
 	renderer.setPixelRatio ( window.devicePixelRatio );
 	renderer.domElement.style.touchAction = 'none';
 
 	// ------------------------------------ LOOP DE ANIMAÇÃO ------------------------------------
 
+	// --- Criação do Clock ---
 	let clock = new THREE.Clock();
 
+	// --- Função de Animação ---
 	function animate()
 	{
 		requestAnimationFrame ( animate );
@@ -316,11 +365,13 @@ function initThreeJS ( containerId )
 
 	// ------------------------------------ CONTROLE DE ARRASTE (DRAG) ------------------------------------
 
+	// --- Criação do Handler de Drag ---
 	const dragHandler = createDragHandler ( renderer.domElement );
 	const dragOffset = dragHandler.dragOffset;
 
 	// ------------------------------------ MONKEY-PATCH EM camera.lookAt ------------------------------------
 
+	// --- Criação do Patch para o LookAt ---
 	const restoreLookAt = createLookAtPatch ( camera, dragOffset );
 
 	// ------------------------------------ FUNÇÃO DE CLEANUP ------------------------------------
@@ -350,6 +401,7 @@ function initThreeJS ( containerId )
 
 document.addEventListener ( 'DOMContentLoaded', () =>
 {
+	// --- Inicialização da Animação Principal ---
 	const mainAnimation = initThreeJS ( 'animationContainer' );
 	window.mainAnimation = mainAnimation;
 });
