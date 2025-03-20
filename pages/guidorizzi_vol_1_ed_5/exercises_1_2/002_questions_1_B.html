@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang = "pt-br">
+<head>
+	<meta charset = "UTF-8">
+	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+	<title>Exercício 1.2, 1-B</title>
+
+	<!-- MathJax -->
+	<script src = "https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id = "MathJax-script" async src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<!-- Three.js -->
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src = "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/FontLoader.js"></script>
+	<!-- Custom CSS -->
+	<link rel = "stylesheet" href = "../../../style/css/main_steps.css">
+</head>
+
+<body>
+<main>
+<div class = "container">
+	<div class = "row justify-content-center">
+		<div class = "col-md-8">
+			<div class = "card">
+				<div class = "card-header text-center">
+					<i class = "fas fa-calculator"></i> Exercício 1.2
+				</div>
+				<div class = "card-body">
+					<h4>(1) Resolva as inequações:</h4>
+					<h5>(B) \( x - 3 > 3x + 1 \)</h5>
+					<hr>
+
+					<section> <!--  Parte 1  -->
+						<article class = "step"> <!--  Passo 1  -->
+							<h5><i class = "fas fa-search"></i> Passo 1: Somar \( 3 \) de ambos os lados</h5>
+							<p>Somamos \( 3 \) em ambos os lados para eliminar o termo constante do lado esquerdo:</p>
+							<p>\[
+								x - 3 + 3 > 3x + 1 + 3
+							\]</p>
+							<p>Simplificando:</p>
+							<p>\[
+								x > 3x + 4
+							\]</p>
+						</article>
+
+						<article class = "step">  <!--  Passo 2  -->
+							<h5><i class = "fas fa-lightbulb"></i> Passo 2: Subtraia \( 3x \) de ambos os lados</h5>
+							<p>Subtraímos \( 3x \) e ambos os lados para agrupar os termos com \( x \) no lado esquerdo:</p>
+							<p>\[
+								x - 3x > 3x - 3x + 4
+							\]</p>
+							<p>Simplificando:</p>
+							<p>\[
+								-2x > 4
+							\]</p>
+						</article>
+
+						<article class = "step">  <!--  Passo 3  -->
+							<h5><i class = "fas fa-pencil-alt"></i> Passo 3: Multiplica ambos os lados por \( -1 \)</h5>
+							<p>Ao multiplicar por \( -1 \), o sinal da desigualdade se inverte ( propriedade das inequações ):</p>
+							<p>\[
+								(-2x > 4) \times (-1)
+							\]</p>
+							<p>Após a multiplicação:</p>
+							<p>\[
+								2x < -4
+							\]</p>
+						</article>
+
+						<article class = "step">  <!--  Passo 4  -->
+							<h5><i class = "fas fa-pencil-alt"></i> Passo 4: Divida ambos os lados por \( 2 \)</h5>
+							<p>Dividimos ambos os lados por \( 2 \)  para isolar \( x \):</p>
+							<p>\[
+								\frac{2x}{2} < \frac{4}{2}
+							\]</p>
+							<p>Simplificando:</p>
+							<p>\[
+								x < -2
+							\]</p>
+						</article>
+					</section>
+
+					<section> <!--  Solução  -->
+						<article class = "step">  <!--  Resposta  -->
+							<h5><i class = "fas fa-check-circle"></i> Solução Final:</h5>
+							<p class = "text-center">\[
+								x < -2
+							\]</p>
+							<p class = "text-muted text-center">Notação de intervalo: \( \left(-\infty, -2\right) \)</p>
+							<p class = "text-muted text-center">ou em linguagem natural: todos os números reais menores que \( -2 \).</p>
+						</article>
+
+						<article class = "step"> <!--  Reta Numérica  -->
+							<h5><i class = "fas fa-chart-line"></i> Reta Numérica:</h5>
+
+							<figure class = "imagem zoomable" onclick = "Abrir_Zoom ( this )">
+								<img 
+									src = "../../../svg/graphics/Guidorizzi_Vol-1_Ed-5/003_Exercicios_1-2/002_Q-1_L-B.svg" 
+									alt = "Solução gráfica da inequação" 
+									class = "img-fluid"
+									data-legenda = "Imagem 1: Solução gráfica."
+								>
+								<figcaption>Imagem 1: Solução gráfica.</figcaption>
+							</figure>
+						</article>
+
+						<article class = "step interactive-graphic exibir-graph-pc" onclick = "abrirModalReta()">
+							<h5><i class = "fas fa-chart-line"></i> Reta Numérica Interativa (Clique para expandir)</h5>
+							<div id = "animationContainer"></div>
+						</article>
+
+						<article class = "step exibir-graph-mobile">
+							<h5>
+								<a href = "./002_graphic3D_1.html" class = "link-mobile casa">
+									<i class = "fas fa-chart-line "></i> Reta Numérica Interativa (Clique para visualizar animação)
+								</a>
+							</h5>
+						</article>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</main>
+
+<section> <!-- Modal -->
+	<div> <!--  Imagem 1  -->
+		<div id = "modalZoom" class = "modal-zoom">
+			<span class = "fechar" onclick = "Fechar_Zoom()">&times;</span>
+			<img class = "modal-conteudo" id = "img_Zoom">
+			<div class = "modal-legenda" id = "img_Legenda"></div>
+
+			<!-- Controles Extras -->
+			<div class="modal-controles">
+				<button onclick = "Zoom_In();" title = "Ampliar zoom">🔍+</button>
+				<button onclick = "Zoom_Out();" title = "Reduzir zoom">🔍-</button>
+				<button onclick = "Toggle_Theme();" title = "Alternar tema">🌗</button>
+				<button onclick = "Download_Imagem_SVG();" title = "Salvar como SVG">📥</button>
+				<button onclick = "Download_PDF();" title="Salvar como PDF">📄</button>
+				<button onclick = "Fechar_Zoom()" title = "Fechar">❌</button>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Modal Fullscreen -->
+<div class = "modal fade" id = "retaModal" tabindex = "-1" aria-labelledby = "retaModalLabel" aria-hidden = "true">
+	<div class = "modal-dialog modal-custom-width">
+		<div class = "modal-content">
+			<div class = "modal-header bg-dark">
+				<h5 class = "modal-title text-danger" id = "retaModalLabel">
+					<i class = "fas fa-expand-arrows-alt"></i> Visualização em Tela Cheia
+				</h5>
+				<button type = "button" class = "btn-close btn-close-white" data-bs-dismiss = "modal" aria-label = "Close"></button>
+			</div>
+			<div class = "modal-body temas p-0">
+				<div id = "animationContainerFullscreen" class = "h-100 w-10"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class = "footer">
+		<p>Criado por <a href = "#" target="_blank">RafaMZ</a></p>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+	<!-- jsPDF e canvg -->
+	<script src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+	<script src = "https://cdnjs.cloudflare.com/ajax/libs/canvg/3.0.0/canvg.min.js"></script>
+
+	<script type = "module" src = "../../../script/javascript/main_step.js"></script>
+	<script src = "../../../script/javascript/resolutions/Guidorizzi/Volume_1/edition_5/0003_exercises_1_2/002_Question_1_B.js"></script>
+
+	<script src = "../../../script/javascript/utils_3D/zoom.js"></script>
+	<script src = "../../../script/javascript/utils_3D/move.js"></script>
+	<script src = "../../../script/javascript/utils_3D/lookAtPatch.js"></script>
+
+	<script src = "../../../script/javascript/imagens/reta-interativa.js"></script>
+</body>
+</html>
