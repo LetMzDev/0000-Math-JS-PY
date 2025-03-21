@@ -445,7 +445,11 @@ canvas {
   margin: 22px 0;
   position: relative;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3), inset 0 3px 6px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  transform-style: preserve-3d;
+  overflow: hidden;
+  will-change: transform;
+  animation: border-blink 3s ease-in-out infinite;
 }
 .math-property::before {
   content: "";
@@ -456,24 +460,78 @@ canvas {
   width: 3px;
   background: linear-gradient(to bottom, rgba(255, 218, 102, 0.7), rgba(255, 218, 102, 0));
   border-radius: 2px;
+  z-index: 2;
+  animation: edge-glow 3s ease-in-out infinite;
+}
+.math-property::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(45deg, transparent 0%, transparent 5%, rgba(255, 218, 102, 0.1) 5%, rgba(255, 218, 102, 0.05) 10%);
+  animation: shine 3s infinite linear;
+  opacity: 0.15;
+  transform: rotate(45deg);
 }
 .math-property:hover {
-  transform: translateY(-3px);
+  transform: perspective(800px) rotateX(3deg) rotateY(3deg) translateZ(15px) translateY(-3px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4), inset 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+.math-property:hover::after {
+  transform: rotate(45deg) translateZ(-10px);
+}
+.math-property > * {
+  transform: translateZ(20px);
+  position: relative;
+  z-index: 1;
+  backface-visibility: hidden;
+}
 
+@keyframes border-blink {
+  0%, 100% {
+    border-color: rgba(250, 233, 140, 0.3);
+    box-shadow: 0 0 8px rgba(255, 218, 102, 0);
+  }
+  50% {
+    border-color: rgba(255, 218, 102, 0.8);
+    box-shadow: 0 0 12px rgba(255, 218, 102, 0.4);
+  }
+}
+@keyframes edge-glow {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+@keyframes shine {
+  from {
+    transform: translateY(0) rotate(45deg);
+  }
+  to {
+    transform: translateY(100%) rotate(45deg);
+  }
+}
 .property-icon {
   font-size: 2.2rem;
   color: #ffda66;
   float: left;
   margin-right: 18px;
   text-shadow: 0 0 6px rgba(255, 218, 102, 0.5);
+  transition: transform 0.3s ease;
+}
+.math-property:hover .property-icon {
+  transform: translateZ(10px) rotate(-5deg);
 }
 
 .property-text {
   overflow: hidden;
   color: #e0e0e0;
   line-height: 1.6;
+  transform: translateZ(15px);
 }
 .property-text strong {
   color: #ffda66;
@@ -512,7 +570,7 @@ canvas {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: repeating-linear-gradient(45deg, transparent 0%, transparent 5%, rgba(0, 255, 136, 0.4) 5%, rgba(0, 255, 136, 0.4) 10%);
+  background: repeating-linear-gradient(45deg, transparent 0%, transparent 5%, rgb(0, 0, 0) 5%, rgba(0, 0, 0, 0.4) 10%);
   animation: shine 3s infinite linear;
   opacity: 0.15;
   backface-visibility: hidden;
@@ -525,9 +583,9 @@ canvas {
   left: 0;
   right: 0;
   bottom: 0;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   border-radius: 15px;
-  animation: border-pulse 2s infinite;
+  animation: border-pulse 3s infinite;
   backface-visibility: hidden;
 }
 

@@ -36,8 +36,8 @@
 		45deg,
 		transparent 0%,
 		transparent 5%,
-		rgba(0, 255, 136, 0.4) 5%,
-		rgba(0, 255, 136, 0.4) 10%
+		rgb(0, 0, 0) 5%,
+		rgba(0, 0, 0, 0.4) 10%
 	);
 
 	animation: shine 3s infinite linear;
@@ -53,9 +53,9 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	border: 2px solid transparent;
+	border: 1px solid transparent;
 	border-radius: 15px;
-	animation: border-pulse 2s infinite;
+	animation: border-pulse 3s infinite;
 	backface-visibility: hidden;
 }
 
