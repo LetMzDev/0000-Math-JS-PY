@@ -1,20 +1,27 @@
 .solution-final
 {
-	background: linear-gradient(
-		145deg, 
-		rgba(26, 26, 26, 0.9), 
-		rgba(13, 13, 13, 0.9)
-	);
-
-	border: 1px solid #00ff88;
-	border-radius: 15px;
-	padding: 25px;
-	margin: 30px 0;
 	position: relative;
+	transform-style: preserve-3d;
+	transition: transform 0.3s ease;
+	will-change: transform;
 	overflow: hidden;
-	box-shadow: 
-		0 0 25px rgba(0, 255, 136, 0.4),
-		4px 4px 15px rgba(0, 0, 0, 0.5);
+
+	&:hover
+	{
+		transform: perspective(1000px) rotateX(5deg) rotateY(5deg) translateZ(20px);
+
+		&::before
+		{
+			transform: translateZ(-20px);
+		}
+	}
+
+	// Aplica o efeito 3D apenas para os filhos diretos e evita problemas de renderização
+	& > *
+	{
+		transform: translateZ(30px);
+		backface-visibility: hidden;
+	}
 }
 
 .solution-final::before
@@ -35,6 +42,7 @@
 
 	animation: shine 3s infinite linear;
 	opacity: 0.15;
+	backface-visibility: hidden;
 }
 
 .solution-final::after
@@ -48,6 +56,7 @@
 	border: 2px solid transparent;
 	border-radius: 15px;
 	animation: border-pulse 2s infinite;
+	backface-visibility: hidden;
 }
 
 .solution-final h5
@@ -91,31 +100,47 @@
 		rgba(0, 255, 136, 0.02)
 	);
 
-	box-shadow: 
-		0 0 12px rgba(0, 255, 136, 0.1),
+	box-shadow: 0 0 12px 
+		rgba(0, 255, 136, 0.1),
 		inset 0 0 8px rgba(0, 255, 136, 0.05);
 
 	position: relative;
 	margin: 15px 0;
 }
 
-/* Animações */
+// Animações
 @keyframes border-pulse
 {
-	0% { border-color: transparent; }
-	50% { border-color: #00ff88; }
-	100% { border-color: transparent; }
+	0% {
+	border-color: transparent;
+	}
+	50% {
+	border-color: #00ff88;
+	}
+	100% {
+	border-color: transparent;
+	}
 }
 
 @keyframes shine
 {
-	from { transform: translateY(0) rotate(45deg); }
-	to { transform: translateY(100%) rotate(45deg); }
+	from {
+	transform: translateY(0) rotate(45deg);
+	}
+	to {
+	transform: translateY(100%) rotate(45deg);
+	}
 }
 
 @keyframes float
 {
-	0% { transform: translateY(0); }
-	50% { transform: translateY(-10px); }
-	100% { transform: translateY(0); }
+	0% {
+	transform: translateY(0);
+	}
+	50% {
+	transform: translateY(-10px);
+	}
+	100% {
+	transform: translateY(0);
+	}
 }
