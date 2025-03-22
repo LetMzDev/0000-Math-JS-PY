@@ -3,16 +3,16 @@
 <head>
 	<meta charset = "UTF-8">
 	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
-	<title>Exercício 1.2, 1-C</title>
+	<title>Exercício 1.2, 1-A</title>
 
 	<!-- MathJax -->
 	<script src = "https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 	<script id = "MathJax-script" async src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 	<!-- Three.js -->
-	<script src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-	<script src = "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/FontLoader.js"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src = "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/FontLoader.js"></script>
 	<!-- Custom CSS -->
-	<link rel = "stylesheet" href = "../../../style/css/main_steps.css">
+	<link rel = "stylesheet" href = "../../../../../style/css/main_steps.css">
 </head>
 
 <body>
@@ -22,107 +22,66 @@
 		<div class = "col-md-8">
 			<div class = "card">
 				<div class = "card-header text-center">
-					<i class = "fas fa-calculator"></i> Exercício 1.2
+					<!--  Titulo em js -->
 				</div>
 				<div class = "card-body">
-					<h4>(1) Resolva as inequações:</h4>
-					<h5><span class = "a_letra">(D)</span> \( x + 3 \leq 6x - 2 \)</h5>
+					<h4>Resolva as inequações:</h4>
+					<h5> \( 3x + 3 < x + 6 \)</h5>
 					<hr>
 
 					<section> <!--  Parte 1  -->
 						<article class = "step"> <!--  Passo 1  -->
 							<h5><i class = "fas fa-search"></i> Passo 1: Subtraia \( 3 \) de ambos os lados</h5>
-							<p>Subtraimos \( 3 \) de ambos os lados para eliminar o termo constante do lado esquerdo:</p>
+							<p>Subtraímos \( 3 \) para isolar o termo com \( x \):</p>
 							<p>\[
-								x + 3 - 3 \leq 6x - 2 - 3
+								3x + 3 - 3 < x + 6 - 3
 							\]</p>
 
 							<p>Simplificando:</p>
 							<p>\[
-								x \leq 6x - 5
+								3x < x + 3
 							\]</p>
 						</article>
 
 						<article class = "step">  <!--  Passo 2  -->
-							<h5><i class = "fas fa-lightbulb"></i> Passo 2: Subtraia \( 6x \) de ambos os lados</h5>
-							<p>Subtraímos \( 6x \) de ambos os lados para agrupar os termos com \( x \) no lado esquerdo:</p>
+							<h5><i class = "fas fa-lightbulb"></i> Passo 2: Subtraia \( x \) de ambos os lados</h5>
+							<p>
+								Subtraímos \( x \) *de ambos os lados* para agrupar todos os termos com \( x \) no lado esquerdo e isolar os termos constantes no lado direito:
+							</p>
 							<p>\[
-								x - 6x \leq 6x - 6x - 5
+								3x - x < x - x + 3
 							\]</p>
 
 							<p>Simplificando:</p>
 							<p>\[
-								-5x \leq -5
+								2x < 3
 							\]</p>
 						</article>
 
 						<article class = "step">  <!--  Passo 3  -->
-							<h5><i class = "fas fa-pencil-alt"></i> Passo 3: Multiplica ambos os lados por \( -1 \)</h5>
-							<p>Ao multiplicar por \( -1 \), o sinal da desigualdade se inverte ( propriedade das inequações ):</p>
-
-							<!-- Caixa da Propriedade Matemática -->
-							<div class="math-property">
-								<div class="property-icon">🌟</div>
-								<div class="property-text">
-									<p><strong>Propriedade das Inequações:</strong></p>
-									<p>
-										Quando multiplicamos ou dividimos uma inequação por um número **negativo**, devemos **inverter o sinal da desigualdade**. Isso acontece porque os números negativos trocam a ordem na reta numérica.
-									</p>
-
-									<p>🔹 Propriedade:</p>
-									<p class="mathjax">
-										Se \( a > b \) e \( c < 0 \), então \( a \cdot c < b \cdot c \).
-									</p>
-
-									<p>🔹 Exemplo numérico:</p>
-									<p class="mathjax">
-										Se \( 3 > 2 \), então ao multiplicar por \( -1 \):  
-										\[
-										3 \times (-1) < 2 \times (-1) \Rightarrow -3 < -2
-										\]
-									</p>
-								</div>
-							</div>
-
-								<p>Multiplicando ambos os lados por \( -1 \):</p>
-								<p>\[
-									(-1) \cdot (-5x) \leq (-1) \cdot -5
-								\]</p>
-
-								<p>Invertendo o sinal da desigualdade:</p>
-								<p>\[
-									(-1) \cdot (-5x) \geq (-1) \cdot -5
-								\]</p>
-
-								<p>Simplificando:</p>
-								<p>\[
-									5x \geq 5
-								\]</p>
-						</article>
-
-						<article class = "step">  <!--  Passo 4  -->
-							<h5><i class = "fas fa-pencil-alt"></i> Passo 4: Divida ambos os lados por \( 5 \)</h5>
-							<p>Dividimos ambos os lados por \( 5 \)  para isolar \( x \):</p>
+							<h5><i class = "fas fa-pencil-alt"></i> Passo 3: Divida ambos os lados por 2</h5>
+							<p>Dividimos *ambos os lados* por 2 para resolver para \( x \):</p>
 							<p>\[
-								\frac{5x}{5} \geq \frac{5}{5}
+								\frac{2x}{2} < \frac{3}{2}
 							\]</p>
 
 							<p>Simplificando:</p>
 							<p>\[
-								x \geq 1
+								x < \frac{3}{2}
 							\]</p>
 						</article>
 					</section>
 
 					<section> <!--  Solução  -->
-						<article class=" solution-final">
-							<h5><i class="fas fa-check-circle"></i> Solução Final</h5>
-							<p class="text-center">
-								\[ x \geq 1 \]
+						<article class = "solution-final">
+							<h5><i class = "fas fa-check-circle"></i> Solução Final</h5>
+							<p class = "text-center">
+								\[ x < \frac{3}{2} \]
 							</p>
-							<p class="text-muted text-center">
-								Notação de intervalo: \( [ 1, \infty) \)<br><br>
-								Isso significa que \( x \) pode assumir qualquer valor a partir de \( 1 \), inclusive, indo até o infinito.
+							<p class = "text-muted text-center">
+								Notação de intervalo: \( \left(-\infty, \frac{3}{2}\right) \)<br><br>
+								Representa todos os números reais menores que 3/2, sem incluir o próprio 3/2 (indicado pelo parêntese)<br><br>
+								Decimal: \( x = 1,5 \)
 							</p>
 						</article>
 
@@ -131,7 +90,7 @@
 
 							<figure class = "imagem zoomable" onclick = "Abrir_Zoom ( this )">
 								<img 
-									src = "../../../svg/graphics/Guidorizzi_Vol-1_Ed-5/003_Exercicios_1-2/004_Q-1_L-D.svg" 
+									src = "../../../../../svg/Graphics/Guidorizzi/Volume_1/003_Capitulo_1_2_E/Question_01/001_Item_A_Imagem_1.svg" 
 									alt = "Solução gráfica da inequação" 
 									class = "img-fluid"
 									data-legenda = "Imagem 1: Solução gráfica."
@@ -147,7 +106,7 @@
 
 						<article class = "step exibir-graph-mobile">
 							<h5>
-								<a href = "./004_graphic3D_1.html" class = "link-mobile casa">
+								<a href = "./Graphic3D_mobile/001_G_Item_A_1.html" class = "link-mobile">
 									<i class = "fas fa-chart-line "></i> Reta Numérica Interativa (Clique para visualizar animação)
 								</a>
 							</h5>
@@ -168,7 +127,7 @@
 			<div class = "modal-legenda" id = "img_Legenda"></div>
 
 			<!-- Controles Extras -->
-			<div class="modal-controles">
+			<div class = "modal-controles">
 				<button onclick = "Zoom_In();" title = "Ampliar zoom">🔍+</button>
 				<button onclick = "Zoom_Out();" title = "Reduzir zoom">🔍-</button>
 				<button onclick = "Toggle_Theme();" title = "Alternar tema">🌗</button>
@@ -207,13 +166,15 @@
 	<script src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 	<script src = "https://cdnjs.cloudflare.com/ajax/libs/canvg/3.0.0/canvg.min.js"></script>
 
-	<script type = "module" src = "../../../script/javascript/main_step.js"></script>
-	<script src = "../../../script/javascript/resolutions/Guidorizzi/Volume_1/edition_5/0003_exercises_1_2/004_Question_1_D.js"></script>
+	<script type = "module" src = "../../../../../script/javascript/main_step.js"></script>
+	<script src = "../../../../../script/javascript/resolutions/Guidorizzi/tittle_Guidorizzi.js"></script>
 
-	<script src = "../../../script/javascript/utils_3D/zoom.js"></script>
-	<script src = "../../../script/javascript/utils_3D/move.js"></script>
-	<script src = "../../../script/javascript/utils_3D/lookAtPatch.js"></script>
+	<script src = "../../../../../script/javascript/resolutions/Guidorizzi/Volume_1/003_Capitulo_1_2_E/Question_01/001_Question_1_A.js"></script>
 
-	<script src = "../../../script/javascript/imagens/reta-interativa.js"></script>
+	<script src = "../../../../../script/javascript/utils_3D/zoom.js"></script>
+	<script src = "../../../../../script/javascript/utils_3D/move.js"></script>
+	<script src = "../../../../../script/javascript/utils_3D/lookAtPatch.js"></script>
+
+	<script src = "../../../../../script/javascript/imagens/reta-interativa.js"></script>
 </body>
 </html>
