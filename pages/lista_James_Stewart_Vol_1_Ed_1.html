@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang = "pt-br">
+
+<head>
+	<meta charset = "UTF-8">
+	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+	<meta name = "description" content = "Resoluções de livros de matemática">
+
+	<title>Resoluções - Lista de Capítulos</title>
+
+	<link rel = "stylesheet" href = "./style/css/fixos/normalize.css" media = "print" onload = "this.media = 'all'">
+	<link rel = "stylesheet" href = "../style/css/main_list_item.css">
+</head>
+
+<body>
+<main class = "container my-5">
+	<h2 class = "text-center text-danger">Resoluções - Lista de Capítulos. James Stewart, Vol.1, 1º Edição</h2>
+	<div class = "text-center">
+		<button class = "btn btn-toggle" id = "toggleAll">Expandir Todos</button>
+	</div>
+	<div class = "accordion" id = "listaCapitulos">
+
+		<section class = "accordion-item"> <!--  Teste de Verificação  -->
+			<h2 class = "accordion-header">
+				<button class = "accordion-button" type = "button" data-bs-toggle = "collapse" data-bs-target = "#capitulo1">
+					Teste de Verificação <span data-num1 = "1" data-num2 = "1" style = "margin-left: 12px;"></span>
+				</button>
+			</h2>
+			<div id = "capitulo1" class = "accordion-collapse collapse">
+				<div class = "accordion-body">
+					<div class = "nested-accordion">
+						<div class = "accordion-item nested-item">
+
+							<article> <!--  A - Teste de Verificação: Álgebra  -->
+								<h3 class = "accordion-header">
+									<button class = "accordion-button nested-btn" 
+											type = "button" 
+											data-bs-toggle = "collapse" 
+											data-bs-target = "#Teste_Algebra">
+										A - Teste de Verificação: Álgebra <span data-num1 = "0" data-num2 = "19" style = "margin-left: 12px;"></span>
+									</button>
+								</h3>
+								<div id = "Teste_Algebra" class = "accordion-collapse collapse">
+									<div class = "accordion-body">
+										<ul class = "list-group">
+											<li>
+												<button class = "accordion-button nested-btn" 
+													type = "button" 
+													data-bs-toggle = "collapse" 
+													data-bs-target = "#Teste_Algebra_Q_1"
+													aria-expanded = "false">
+														Questão 1
+												</button>
+											</li>
+											<ul id = "Teste_Algebra_Q_1" class = "collapse">
+												<li class = "list-group-item nested-list-item">
+													<a href = "./James_Stewart/Volume_1/Teste_Verificcar/001_Algebra/Question_1/001_Item_A.html?Edition_X=1&Exercise_W=Testes de Verificação: Álgebra&Question_Y=1&Letter_Z=A" 
+														class = "text-decoration-none text-white stretched-link" 
+														style ="--stretched-link-z: 1; position: relative;" target = "_blank" rel = "noopener noreferrer">
+															Letra ( A ) <i class = "fa-solid fa-up-right-from-square"></i>
+													</a>
+												</li>
+											</ul>
+										</ul>
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class = "accordion-item"> <!--  Capítulo 2  -->
+			<h2 class = "accordion-header">
+				<button class = "accordion-button" type = "button" data-bs-toggle = "collapse" data-bs-target = "#capitulo2">
+					Capítulo 2 - Números Reais <span data-num1 = "0" data-num2 = "1" style = "margin-left: 12px;"></span>
+				</button>
+			</h2>
+			<div id = "capitulo2" class = "accordion-collapse collapse">
+				<div class = "accordion-body">
+					<div class = "nested-accordion">
+						<div class = "accordion-item nested-item">
+
+							<article> <!--  Capítulo 2.1  -->
+								<h3 class = "accordion-header">
+									<button class = "accordion-button nested-btn" 
+											type = "button" 
+											data-bs-toggle = "collapse" 
+											data-bs-target = "#capitulo2.1">
+										2.1 - Os Números Racionais
+									</button>
+								</h3>
+								<div id = "capitulo2.1" class = "accordion-collapse collapse">
+									<div class = "accordion-body">
+										<ul class = "list-group">
+											<li class = "list-group-item nested-list-item">Demonstração: Soma de dois racionais</li>
+											<li class = "list-group-item nested-list-item">Demonstração: Produto de dois racionais</li>
+											<li class = "list-group-item nested-list-item">Demonstração: Propriedade associativa da adição</li>
+										</ul>
+									</div>
+								</div>
+							</article>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</main>
+
+	<div class = "footer">
+		<p>Criado por <a href = "#" target="_blank">RafaMZ</a></p>
+	</div>
+
+	<script
+		src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+		integrity = "sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
+		crossorigin = "anonymous">
+	</script>
+
+	<script type="module" src = "../script/javascript/main_list.js"></script>
+</body>
+</html>
