@@ -20,7 +20,7 @@ window.addEventListener ( 'DOMContentLoaded', () =>
 	{
 		header.innerHTML = `
 			<i class="fas fa-calculator"></i> 
-			Guidorizzi, Vol.1: ${params.Edition_X}º Edição, Exercício ${params.Exercise_W}, Questão ${params.Question_Y} - ${params.Letter_Z}
+			Guidorizzi, Vol.1: ${params.Edition_X}º Edição, ${params.Exercise_W} ${params.Question_Y} ${params.Letter_Z}
 		`;
 	}
 });
