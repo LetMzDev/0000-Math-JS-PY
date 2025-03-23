@@ -659,6 +659,116 @@ canvas {
     transform: translateY(0);
   }
 }
+.conclusion-final {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+  will-change: transform;
+  overflow: hidden;
+}
+.conclusion-final:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(5deg) translateZ(20px);
+}
+.conclusion-final:hover::before {
+  transform: translateZ(-20px);
+}
+.conclusion-final > * {
+  transform: translateZ(30px);
+  backface-visibility: hidden;
+}
+
+.conclusion-final::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(45deg, transparent 0%, transparent 5%, rgba(0, 120, 255, 0.4) 5%, rgba(0, 212, 255, 0.2) 10%);
+  animation: shine 3s infinite linear;
+  opacity: 0.15;
+  backface-visibility: hidden;
+}
+
+.conclusion-final::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid transparent;
+  border-radius: 15px;
+  animation: border-pulse 3s infinite;
+  backface-visibility: hidden;
+}
+
+.conclusion-final h5 {
+  color: #00f7ff !important;
+  font-size: 2rem !important;
+  text-shadow: 0 0 15px rgba(0, 247, 255, 0.4);
+  position: relative;
+}
+
+.conclusion-final h5::after {
+  content: "🔷";
+  margin-left: 15px;
+  filter: drop-shadow(0 0 5px #00f7ff);
+  animation: float 2s ease-in-out infinite;
+}
+
+.conclusion-final p {
+  font-size: 1.8rem;
+  text-align: center;
+  margin: 15px 0;
+}
+
+.conclusion-final p.text-muted {
+  color: #66e3ff !important;
+  font-size: 1.5rem;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
+}
+
+.conclusion-final p.text-center {
+  padding: 8px 20px;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 8px;
+  background: linear-gradient(to right, rgba(0, 212, 255, 0.05), rgba(0, 174, 255, 0.02));
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.1), inset 0 0 8px rgba(0, 174, 255, 0.05);
+  position: relative;
+  margin: 15px 0;
+}
+
+@keyframes border-pulse {
+  0% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #00a2ff;
+  }
+  100% {
+    border-color: transparent;
+  }
+}
+@keyframes shine {
+  from {
+    transform: translateY(0) rotate(45deg);
+  }
+  to {
+    transform: translateY(100%) rotate(45deg);
+  }
+}
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 @media (max-width: 768px) {
   .container {
     padding: 0 15px;
