@@ -39,7 +39,7 @@
 		rgba(0, 212, 255, 0.2) 10%
 	);
 
-	animation: shine 3s infinite linear;
+	animation: conclusion-shine 3s infinite linear;
 	opacity: 0.15;
 	backface-visibility: hidden;
 }
@@ -54,7 +54,7 @@
 	bottom: 0;
 	border: 1px solid transparent;
 	border-radius: 15px;
-	animation: border-pulse 3s infinite;
+	animation: conclusion-border-pulse 3s infinite;
 	backface-visibility: hidden;
 }
 
@@ -71,7 +71,7 @@
 	content: '🔷';
 	margin-left: 15px;
 	filter: drop-shadow(0 0 5px #00f7ff);
-	animation: float 2s ease-in-out infinite;
+	animation: conclusion-float 2s ease-in-out infinite;
 }
 
 .conclusion-final p
@@ -107,7 +107,7 @@
 	margin: 15px 0;
 }
 
-@keyframes border-pulse
+@keyframes conclusion-border-pulse
 {
 	0% {
 		border-color: transparent;
@@ -120,7 +120,7 @@
 	}
 }
 
-@keyframes shine
+@keyframes conclusion-shine
 {
 	from {
 		transform: translateY(0) rotate(45deg);
@@ -130,7 +130,7 @@
 	}
 }
 
-@keyframes float
+@keyframes conclusion-float
 {
 	0% {
 		transform: translateY(0);

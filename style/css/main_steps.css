@@ -575,7 +575,7 @@ canvas {
   width: 200%;
   height: 200%;
   background: repeating-linear-gradient(45deg, transparent 0%, transparent 5%, rgb(0, 0, 0) 5%, rgba(0, 0, 0, 0.4) 10%);
-  animation: shine 3s infinite linear;
+  animation: solution-shine 3s infinite linear;
   opacity: 0.15;
   backface-visibility: hidden;
 }
@@ -589,7 +589,7 @@ canvas {
   bottom: 0;
   border: 1px solid transparent;
   border-radius: 15px;
-  animation: border-pulse 3s infinite;
+  animation: solution-border-pulse 3s infinite;
   backface-visibility: hidden;
 }
 
@@ -604,7 +604,7 @@ canvas {
   content: "✅";
   margin-left: 15px;
   filter: drop-shadow(0 0 5px #00ff88);
-  animation: float 2s ease-in-out infinite;
+  animation: solution-float 2s ease-in-out infinite;
 }
 
 .solution-final p {
@@ -629,7 +629,7 @@ canvas {
   margin: 15px 0;
 }
 
-@keyframes border-pulse {
+@keyframes solution-border-pulse {
   0% {
     border-color: transparent;
   }
@@ -640,7 +640,7 @@ canvas {
     border-color: transparent;
   }
 }
-@keyframes shine {
+@keyframes solution-shine {
   from {
     transform: translateY(0) rotate(45deg);
   }
@@ -648,7 +648,7 @@ canvas {
     transform: translateY(100%) rotate(45deg);
   }
 }
-@keyframes float {
+@keyframes solution-float {
   0% {
     transform: translateY(0);
   }
@@ -685,7 +685,7 @@ canvas {
   width: 200%;
   height: 200%;
   background: repeating-linear-gradient(45deg, transparent 0%, transparent 5%, rgba(0, 120, 255, 0.4) 5%, rgba(0, 212, 255, 0.2) 10%);
-  animation: shine 3s infinite linear;
+  animation: conclusion-shine 3s infinite linear;
   opacity: 0.15;
   backface-visibility: hidden;
 }
@@ -699,7 +699,7 @@ canvas {
   bottom: 0;
   border: 1px solid transparent;
   border-radius: 15px;
-  animation: border-pulse 3s infinite;
+  animation: conclusion-border-pulse 3s infinite;
   backface-visibility: hidden;
 }
 
@@ -714,7 +714,7 @@ canvas {
   content: "🔷";
   margin-left: 15px;
   filter: drop-shadow(0 0 5px #00f7ff);
-  animation: float 2s ease-in-out infinite;
+  animation: conclusion-float 2s ease-in-out infinite;
 }
 
 .conclusion-final p {
@@ -739,7 +739,7 @@ canvas {
   margin: 15px 0;
 }
 
-@keyframes border-pulse {
+@keyframes conclusion-border-pulse {
   0% {
     border-color: transparent;
   }
@@ -750,7 +750,7 @@ canvas {
     border-color: transparent;
   }
 }
-@keyframes shine {
+@keyframes conclusion-shine {
   from {
     transform: translateY(0) rotate(45deg);
   }
@@ -758,7 +758,7 @@ canvas {
     transform: translateY(100%) rotate(45deg);
   }
 }
-@keyframes float {
+@keyframes conclusion-float {
   0% {
     transform: translateY(0);
   }
@@ -861,8 +861,5 @@ canvas {
     max-width: 90%;
   }
 }
-/*
-sass style/scss/main_steps.scss style/css/main_steps.css
-*/
 
 /*# sourceMappingURL=main_steps.css.map */
