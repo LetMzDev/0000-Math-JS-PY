@@ -6,8 +6,8 @@ function initThreeJS ( containerId )
 	const scene = new THREE.Scene();
 	const camera = new THREE.PerspectiveCamera ( 40, container.clientWidth / container.clientHeight, 0.1, 1000 );
 
-	const renderer = new THREE.WebGLRenderer (
-	{
+	const renderer = new THREE.WebGLRenderer
+	({
 		antialias: true,
 		alpha: true
 	});
@@ -33,9 +33,9 @@ function initThreeJS ( containerId )
 	const numberLine = new THREE.Group();
 
 	// --- Criação da Geometria do Eixo ---
-	const axisGeometry = new THREE.BufferGeometry().setFromPoints (
-	[
-		new THREE.Vector3 ( -3, 0, 0), // Original range
+	const axisGeometry = new THREE.BufferGeometry().setFromPoints
+	([
+		new THREE.Vector3 ( -4, 0, 0 ),
 		new THREE.Vector3 ( 6, 0, 0 )
 	]);
 
@@ -43,206 +43,28 @@ function initThreeJS ( containerId )
 	const axis = new THREE.Line ( axisGeometry, new THREE.LineBasicMaterial ({ color: 0x00FFFF, linewidth: 20 }));
 	numberLine.add ( axis );
 
-	// ---------------------------------------- Rótulo "x"  ----------------------------------------
+	// ⭐ Rotulo_x
+	Rotulo_x ( numberLine, 0x00FFFF, 6.2, -0.1, 6, 0 );
 
-	// --- Carregamento da Fonte ---
-	const loader = new THREE.FontLoader();
-	loader.load ( 'https://cdn.jsdelivr.net/npm/three@0.128.0/examples/fonts/helvetiker_bold.typeface.json', font =>
-	{
-		// --- Criação da Geometria do Texto ---
-		const textGeometry = new THREE.TextGeometry ('x',
-		{
-			size: 0.3,
-			height: 0.02,
-			font: font
-		});
+	// ⭐ NumberSystem
+	new NumberSystem
+	(
+		numberLine,
+		[ 0.03, 0.03, 0.5, 8 ], 0xFFFFFF, -3, 5,
+		false, null, null, null, null, null,
+		null, null, null, null, null, null,
+		0.25, 0xffffff, 0xcccccc, 0.1, -0.4
+	);
 
-		// --- Criação do Material do Texto ---
-		const textMaterial = new THREE.MeshStandardMaterial (
-		{
-			color: 0x00FFFF,
-			emissive: 0x00FFFF,
-			metalness: 0.7,
-			roughness: 0.3
-		});
-
-		// --- Criação do Mesh do Texto ---
-		const text = new THREE.Mesh ( textGeometry, textMaterial );
-		text.position.set ( 6.2, -0.1, 0 );
-		numberLine.add ( text );
-
-		// --- Adicionando a seta ---
-		const arrowHeadGeometry = new THREE.ConeGeometry ( 0.1, 0.3, 32 );
-		const arrowHeadMaterial = new THREE.MeshBasicMaterial ({ color: 0x00FFFF });
-		const arrowHead = new THREE.Mesh ( arrowHeadGeometry, arrowHeadMaterial );
-
-		arrowHead.position.set ( 6, 0, 0 );
-		arrowHead.rotation.z = -Math.PI / 2;
-		numberLine.add ( arrowHead );
-	});
-
-	// ------------------------------------ CLASSE PARA CRIAÇÃO DOS MARCADORES E NÚMEROS ------------------------------------
-
-	class NumberSystem
-	{
-		constructor()
-		{
-			this.numbers = [];
-			this.createMarkers();
-		}
-
-		createMarkers()
-		{
-			// --- Criação da Geometria do Marcador ---
-			const markerGeometry = new THREE.CylinderGeometry ( 0.03, 0.03, 0.5, 8 );
-
-			// --- Criação do Material do Marcador ---
-			const markerMaterial = new THREE.MeshStandardMaterial (
-			{
-				color: 0xFFFFFF,
-				metalness: 0.0,
-				roughness: 0.8
-			});
-
-			// --- Loop para Criação dos Marcadores Inteiros ---
-			for ( let x = -3; x <= 5; x++ ) // Original loop range
-			{
-				const marker = new THREE.Mesh ( markerGeometry, markerMaterial );
-				marker.position.set ( x, 0, 0 );
-				marker.rotation.x = Math.PI / 2;
-				numberLine.add ( marker );
-				this.createNumber ( x );
-			}
-		}
-
-		// ------------------------------------ CRIAÇÃO DE NÚMEROS INTEIROS ------------------------------------
-
-		createNumber ( x )
-		{
-			// --- Carregamento da Fonte ---
-			const loader = new THREE.FontLoader();
-			loader.load ( 'https://cdn.jsdelivr.net/npm/three@0.128.0/examples/fonts/helvetiker_bold.typeface.json', font =>
-			{
-				// --- Criação da Geometria do Texto ---
-				const textGeometry = new THREE.TextGeometry ( x.toString(),
-				{
-					size: 0.25,
-					height: 0.02,
-					font: font
-				});
-
-				// --- Criação do Material do Texto ---
-				const textMaterial = new THREE.MeshStandardMaterial (
-				{
-					color: 0xffffff,
-					emissive: 0xcccccc,
-					metalness: 0.7,
-					roughness: 0.3
-				});
-
-				// --- Criação do Mesh do Texto ---
-				const text = new THREE.Mesh ( textGeometry, textMaterial );
-				text.position.set ( x - 0.1, -0.4, 0 );
-				numberLine.add ( text );
-			});
-		}
-	}
-
-	// ------------------------------------ CLASSE PARA A SOLUÇÃO MATEMÁTICA ------------------------------------
-
-	class MathematicalSolution
-	{
-		constructor()
-		{
-			this.group = new THREE.Group();
-			this.createSolutionLine();
-			this.createCriticalPoint();
-			scene.add ( this.group );
-		}
-
-		createSolutionLine()
-		{
-			// --- Criação da Geometria da Linha de Solução ---
-			const geometry = new THREE.BufferGeometry();
-			const positions = [];
-			const colors = [];
-
-			//Solution: x >= 1.  Represent this with a green line from 1 to 6. Original range is -6 to 6, so max x is 6.
-			for ( let x = 1; x <= 6; x += 0.05 )
-			{
-				positions.push ( x, Math.sin ( x * 2 ) * 0.05, 0 );
-				const red = 0;
-				const green = 1.0;
-				const blue = 0;
-				colors.push ( red, green, blue );
-			}
-
-			geometry.setAttribute ( 'position', new THREE.Float32BufferAttribute ( positions, 3 ));
-			geometry.setAttribute ( 'color', new THREE.Float32BufferAttribute ( colors, 3 ));
-
-			// --- Criação do Material da Linha de Solução ---
-			const material = new THREE.LineBasicMaterial (
-			{
-				vertexColors: true,
-				linewidth: 3,
-				transparent: true
-			});
-
-			// --- Criação da Linha de Solução ---
-			this.solutionLine = new THREE.Line ( geometry, material );
-			this.group.add ( this.solutionLine );
-		}
-
-		createCriticalPoint()
-		{
-			// --- Criação da Geometria do Ponto Crítico ---
-			const geometry = new THREE.RingGeometry ( 0.15, 0.2, 64 );
-
-			// --- Criação do Material do Ponto Crítico ---
-			const material = new THREE.MeshStandardMaterial (
-			{
-				color: 0x00ff00,
-				emissive: 0x00cc00,
-				side: THREE.DoubleSide,
-				metalness: 0.7
-			});
-
-			// --- Criação do Ponto Crítico ---
-			this.point = new THREE.Mesh ( geometry, material );
-			this.point.position.set ( 1, 0, 0 );  //critical point is now at 1
-			this.group.add ( this.point );
-		}
-
-		update ( time )
-		{
-			// --- Atualização da Linha de Solução ---
-			const positions = this.solutionLine.geometry.attributes.position.array;
-
-			for ( let i = 0; i < positions.length; i += 3 )
-				positions [ i + 1 ] = Math.sin ( time * 2 + positions [ i ] * 3 ) * 0.1;
-
-			this.solutionLine.geometry.attributes.position.needsUpdate = true;
-
-			// --- Atualização do Ponto Crítico ---
-			this.point.rotation.z = time * 0.5;
-			this.point.scale.set (
-				1 + Math.sin ( time * 3 ) * 0.1,
-				1 + Math.cos ( time * 2.5 ) * 0.1,
-				1
-			);
-		}
-	}
-
-	// ------------------------------------ ADICIONA OS ELEMENTOS NA CENA ------------------------------------
-
-	// --- Adiciona a Linha Numérica na Cena ---
 	scene.add ( numberLine );
 
-	// --- Cria o Sistema Numérico ---
-	new NumberSystem();
-
-	// --- Cria a Solução Matemática ---
-	const solution = new MathematicalSolution();
+	// ⭐ MathematicalSolution
+	const solution = new MathematicalSolution
+	(
+		scene,
+		1, 6, 0.05, [ 0, 1.0, 0 ],
+		0.15, 0.2, 0x00cc00, 1
+	);
 
 	// --- Configuração Inicial da Câmera ---
 	camera.position.set ( 0, 20, 5 );
@@ -251,7 +73,6 @@ function initThreeJS ( containerId )
 
 	// ------------------------------------ CONTROLE DE CÂMERA BASEADO NO MOVIMENTO DO MOUSE ------------------------------------
 
-	// --- Variáveis para o Controle do Mouse ---
 	let mouseX = 0, mouseY = 0;
 
 	// --- Listener para o Movimento do Mouse ---
@@ -265,13 +86,12 @@ function initThreeJS ( containerId )
 
 	let cleanupZoom; // Variável para armazenar a função de cleanup
 
-	// --- Criação do Handler de Zoom (Condicional) ---
-	if ( containerId === 'animationContainerFullscreen' )
+	// --- Criação do Handler de Zoom ---
+	if ( containerId === 'animationContainerFullscreen')
 		cleanupZoom = createZoomHandler ( camera, container, initialCameraZ );
 
 	// ------------------------------------ RESIZE HANDLER ------------------------------------
 
-	// --- Função para Redimensionamento ---
 	const resizeHandler = () =>
 	{
 		camera.aspect = container.clientWidth / container.clientHeight;
@@ -279,7 +99,6 @@ function initThreeJS ( containerId )
 		renderer.setSize ( container.clientWidth, container.clientHeight );
 	};
 
-	// --- Listener para o Evento de Redimensionamento ---
 	window.addEventListener ( 'resize', resizeHandler );
 	renderer.setPixelRatio ( window.devicePixelRatio );
 	renderer.domElement.style.touchAction = 'none';
@@ -305,13 +124,11 @@ function initThreeJS ( containerId )
 
 	// ------------------------------------ CONTROLE DE ARRASTE (DRAG) ------------------------------------
 
-	// --- Criação do Handler de Drag ---
 	const dragHandler = createDragHandler ( renderer.domElement );
 	const dragOffset = dragHandler.dragOffset;
 
 	// ------------------------------------ MONKEY-PATCH EM camera.lookAt ------------------------------------
 
-	// --- Criação do Patch para o LookAt ---
 	const restoreLookAt = createLookAtPatch ( camera, dragOffset );
 
 	// ------------------------------------ FUNÇÃO DE CLEANUP ------------------------------------
@@ -321,9 +138,9 @@ function initThreeJS ( containerId )
 		camera,
 		renderer,
 		animate,
-
+	
 		cleanup: () =>
-		{
+		{ 
 			window.removeEventListener ( 'resize', resizeHandler );
 
 			if ( cleanupZoom )
@@ -341,7 +158,6 @@ function initThreeJS ( containerId )
 
 document.addEventListener ( 'DOMContentLoaded', () =>
 {
-	// --- Inicialização da Animação Principal ---
 	const mainAnimation = initThreeJS ( 'animationContainer' );
 	window.mainAnimation = mainAnimation;
 });
