@@ -235,7 +235,8 @@ span[data-num1][data-num2] {
 
 .footer {
   --link-url: "https://github.com/LetMzDev";
-  margin-top: 80px;
+  margin-top: 120px;
+  margin-bottom: 30px;
   padding: 20px 0 100px;
   text-align: center;
   color: #777;
@@ -256,7 +257,7 @@ span[data-num1][data-num2] {
 @media (min-width: 769px) {
   .footer {
     padding-bottom: 20px;
-    margin-top: 120px;
+    margin-top: 80px;
   }
 }
 

@@ -1,18 +1,30 @@
+// footer.js
 
 export function Configurar_Link_Footer()
 {
-	document.addEventListener ( "DOMContentLoaded", function ()
+	document.addEventListener("DOMContentLoaded", function ()
 	{
-		const link = document.querySelector (".footer a" );
+		// Cria elementos dinamicamente
+		const footerDiv = document.createElement ( 'div' );
+		footerDiv.className = 'footer';
 
-		if ( link )
-		{
-			// Pega a variável CSS corretamente e remove aspas extras
-			let linkUrl = getComputedStyle(document.querySelector(".footer")).getPropertyValue("--link-url").trim();
+		const paragraph = document.createElement ( 'p' );
+		paragraph.textContent = 'Criado por ';
 
-			// Verifica se a URL começa com "http" para garantir que seja válida
-			if ( linkUrl.startsWith ( "http" ))
-				link.href = linkUrl;
-		}
+		const link = document.createElement ( 'a' );
+		link.textContent = 'LetMzDev';
+		link.href = '#';
+		link.target = '_blank';
+
+		// Monta a estrutura
+		paragraph.appendChild ( link );
+		footerDiv.appendChild ( paragraph );
+		document.body.appendChild ( footerDiv );
+
+		// Configuração do link (mantida da versão original)
+		let linkUrl = getComputedStyle ( footerDiv ).getPropertyValue ( "--link-url" ).trim();
+
+		if ( linkUrl.startsWith ( "http" ))
+			link.href = linkUrl;
 	});
 }
