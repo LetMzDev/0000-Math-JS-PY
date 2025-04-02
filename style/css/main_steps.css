@@ -79,7 +79,6 @@ h4 {
   font-size: 28px;
 }
 
-/* Para navegadores WebKit (Chrome, Edge, Safari, Brave) */
 ::-webkit-scrollbar {
   width: 12px;
   height: 12px;
@@ -95,13 +94,11 @@ h4 {
   border: 2px solid #000000;
 }
 
-/* Para Firefox */
 html {
   scrollbar-color: #FF0000 #000000;
   scrollbar-width: thin;
 }
 
-/* Estilo para todas as expressões matemáticas */
 .math-expression {
   font-family: "CMU Serif", serif;
   font-size: 1.7em;
@@ -157,14 +154,12 @@ html {
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4), -2px -2px 2px rgba(255, 255, 255, 0.3), 0 0 12px rgba(255, 68, 68, 0.5);
   }
 }
-/* Estilo para imagens */
 .imagem {
   max-width: 100%;
   height: auto;
   margin: 0 auto 20px;
   display: block;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  /* Ajustes responsivos */
 }
 @media (min-width: 1200px) {
   .imagem {
@@ -267,13 +262,12 @@ html {
   transform: translateY(0);
 }
 
-/* Botões */
 .modal-controles {
   position: fixed;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 10001; /* Superior ao modal */
+  z-index: 10001;
   display: flex;
   gap: 10px;
   background: rgba(0, 0, 0, 0.7);
@@ -305,7 +299,6 @@ html {
   background: #444;
 }
 
-/* Modo claro */
 .modal-zoom.light {
   background: rgba(110, 109, 109, 0.594);
 }

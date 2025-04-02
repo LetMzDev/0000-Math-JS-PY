@@ -1,3 +1,5 @@
+// lista_itens.scss
+
 .accordion-item
 {
 	background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
@@ -72,7 +74,7 @@
 {
 	content: "📖";
 	margin-right: 10px;
-	filter: drop-shadow(0 0 4px rgba(255, 68, 68, 0.7)); /* Brilho vermelho */
+	filter: drop-shadow(0 0 4px rgba(255, 68, 68, 0.7)); // Brilho vermelho
 	opacity: 0.9;
 }
 
@@ -142,7 +144,7 @@
 	left: 100%;
 }
 
-/* Ajustes no accordion-button  */
+// Ajustes no accordion-button 
 .accordion-button
 {
 	background: linear-gradient(145deg, #6a0000, #332f2f);
@@ -157,7 +159,7 @@
 				inset 0 2px 3px rgba(255, 255, 255, 0.2);
 }
 
-/* Estilos para o accordion aninhado */
+// Estilos para o accordion aninhado
 .nested-accordion
 {
 	margin-left: 1.5rem;

@@ -1,15 +1,23 @@
+// main_steps.scss
+
+// Import =========================================================================================
 @use './estilos/resolutions/estilo_passos.scss';
 @use './components/barra_rolagem.scss';
 @use './estilos/resolutions/math_style.scss';
 @use './estilos/resolutions/imagens.scss';
 @use './components/footer.scss';
+
+// Resoluções
 @use './estilos/resolutions/animations.scss';
 @use './estilos/resolutions/property_math.scss';
 @use './estilos/resolutions/solution.scss';
 @use './estilos/resolutions/conclusion.scss';
 
+// Responsivo
 @use './responsive/resolution.scss';
 @use './responsive/imagens_resp.scss';
+
+// Biblioteca =====================================================================================
 
 // Bootstrap
 @import url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
@@ -19,6 +27,5 @@
 
 // Google Fonts
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@600&display=swap');
-
 
 //sass style/scss/main_steps.scss style/css/main_steps.css

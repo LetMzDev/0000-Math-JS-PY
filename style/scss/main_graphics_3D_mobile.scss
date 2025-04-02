@@ -1,4 +1,9 @@
+// main_graphics_3D_mobile.scss
+
+// Import =========================================================================================
 @use './estilos/resolutions/graphics_3D_mobile.scss';
+
+// Bibliotecas ====================================================================================
 
 // Bootstrap
 @import url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
@@ -6,6 +11,4 @@
 // Cloudflare Icons (Font Awesome)
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
 
-/*
-sass style/scss/main_graphics_3D_mobile.scss style/css/main_graphics_3D_mobile.css
-*/
+//sass style/scss/main_graphics_3D_mobile.scss style/css/main_graphics_3D_mobile.css

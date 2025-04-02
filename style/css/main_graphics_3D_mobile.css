@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
 body {
@@ -17,7 +16,6 @@ body {
   height: calc(100vh - 50px);
 }
 
-/* Estilo para a mensagem */
 .texto-aviso {
   display: none;
   position: fixed;
@@ -29,14 +27,10 @@ body {
   z-index: 10;
 }
 
-/* Mostrar apenas em mobile e orientação portrait */
 @media (max-width: 768px) and (orientation: portrait) {
   .texto-aviso {
     display: inline-block;
   }
 }
-/*
-sass style/scss/main_graphics_3D_mobile.scss style/css/main_graphics_3D_mobile.css
-*/
 
 /*# sourceMappingURL=main_graphics_3D_mobile.css.map */

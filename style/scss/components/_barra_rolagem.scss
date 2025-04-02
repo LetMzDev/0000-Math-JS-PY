@@ -1,4 +1,6 @@
-/* Para navegadores WebKit (Chrome, Edge, Safari, Brave) */
+// _barra_rolagem.scss
+
+// Para navegadores WebKit (Chrome, Edge, Safari, Brave)
 ::-webkit-scrollbar
 {
 	width: 12px;
@@ -17,7 +19,7 @@
 	border: 2px solid #000000;
 }
 
-/* Para Firefox */
+// Para Firefox
 html
 {
 	scrollbar-color: #FF0000 #000000;

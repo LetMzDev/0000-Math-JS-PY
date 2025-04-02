@@ -1,5 +1,6 @@
-/* Estilo para imagens */
+// imagens.scss
 
+// Estilo para imagens
 .imagem
 {
 	max-width: 100%;
@@ -8,7 +9,7 @@
 	display: block;
 	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-	/* Ajustes responsivos */
+	// Ajustes responsivos
 	@media (min-width: 1200px)
 	{
 		max-width: 80%;
@@ -126,14 +127,14 @@
 	transform: translateY(0);
 }
 
-/* Botões */
+// Botões
 .modal-controles
 {
 	position: fixed;
 	bottom: 20px;
 	left: 50%;
 	transform: translateX(-50%);
-	z-index: 10001; /* Superior ao modal */
+	z-index: 10001; // Superior ao modal
 	display: flex;
 	gap: 10px;
 	background: rgba(0, 0, 0, 0.7);
@@ -169,7 +170,7 @@
 	background: #444;
 }
 
-/* Modo claro */
+// Modo claro
 .modal-zoom.light
 {
 	background: rgba(110, 109, 109, 0.594);

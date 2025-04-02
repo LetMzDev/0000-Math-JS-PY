@@ -1,3 +1,5 @@
+// contador.scss
+
 // Contador de questões por livro
 .questoes-contador
 {
@@ -12,7 +14,7 @@
 
 	&::before
 	{
-		content: '\f02d'; /* Ícone de livro do Font Awesome */
+		content: '\f02d'; // Ícone de livro do Font Awesome
 		font-family: 'Font Awesome 6 Free';
 		font-weight: 900;
 		color: #dc3545;
@@ -28,7 +30,7 @@
 	}
 }
 
-/* ===== TOTAL GERAL DE QUESTÕES ===== */
+// ===== TOTAL GERAL DE QUESTÕES =====
 .total-geral
 {
 	position: absolute;
@@ -48,7 +50,7 @@
 
 	&::before
 	{
-		content: '\f19d'; /* Ícone de formatura (Font Awesome) */
+		content: '\f19d'; // Ícone de formatura (Font Awesome)
 		font-family: 'Font Awesome 6 Free';
 		margin-right: 10px;
 		font-weight: 900;

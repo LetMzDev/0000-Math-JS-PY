@@ -18,7 +18,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Para navegadores WebKit (Chrome, Edge, Safari, Brave) */
 ::-webkit-scrollbar {
   width: 12px;
   height: 12px;
@@ -34,7 +33,6 @@ body {
   border: 2px solid #000000;
 }
 
-/* Para Firefox */
 html {
   scrollbar-color: #FF0000 #000000;
   scrollbar-width: thin;
@@ -120,7 +118,6 @@ html {
     max-width: 180px;
   }
 }
-/* ========== NOVOS ESTILOS PARA TÍTULO DE GRUPO ========== */
 .group-title {
   font-size: 2.8rem;
   color: #dc3545;
@@ -174,7 +171,6 @@ html {
   }
 }
 
-/* ========== ESTILO PARA SUBTÍTULOS DE VOLUME ========== */
 .volume-title {
   font-size: 1.8rem;
   color: #64c331;
@@ -230,7 +226,7 @@ html {
   color: #64c331;
 }
 .questoes-contador::before {
-  content: "\f02d"; /* Ícone de livro do Font Awesome */
+  content: "\f02d";
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
   color: #dc3545;
@@ -243,7 +239,6 @@ html {
   color: transparent;
 }
 
-/* ===== TOTAL GERAL DE QUESTÕES ===== */
 .total-geral {
   position: absolute;
   top: 20px;
@@ -261,7 +256,7 @@ html {
   animation: total-pulse 2s infinite ease-in-out;
 }
 .total-geral::before {
-  content: "\f19d"; /* Ícone de formatura (Font Awesome) */
+  content: "\f19d";
   font-family: "Font Awesome 6 Free";
   margin-right: 10px;
   font-weight: 900;
@@ -334,9 +329,5 @@ html {
     margin-top: 80px;
   }
 }
-
-/*
-sass style/scss/main.scss style/css/main.css
-*/
 
 /*# sourceMappingURL=main.css.map */
