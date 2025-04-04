@@ -13,7 +13,7 @@ export function Configurar_Link_Footer()
 
 		const link = document.createElement ( 'a' );
 		link.textContent = 'LetMzDev';
-		link.href = '#';
+		link.href = 'https://github.com/LetMzDev';
 		link.target = '_blank';
 
 		// Monta a estrutura
