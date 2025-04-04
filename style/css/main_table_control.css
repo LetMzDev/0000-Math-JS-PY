@@ -1,0 +1,378 @@
+@charset "UTF-8";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
+html,
+body {
+  font-family: "Noto Sans", sans-serif;
+  height: 100%;
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #000000;
+  color: #afab9b;
+  font-size: 1.25rem;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
+  border-radius: 6px;
+  border: 2px solid #000000;
+}
+
+html {
+  scrollbar-color: #FF0000 #000000;
+  scrollbar-width: thin;
+}
+
+.math-page-title {
+  font-family: "Poppins", sans-serif;
+  color: #8b0000;
+  text-align: center;
+  margin: 2rem 0 1rem;
+  padding: 0 1rem;
+  text-shadow: 0 0 15px rgba(139, 0, 0, 0.4);
+  position: relative;
+  font-size: 2.5rem;
+}
+.math-page-title::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #8b0000 50%, transparent);
+  margin: 0.8rem auto;
+  opacity: 0.7;
+}
+.math-page-title i {
+  margin-right: 15px;
+  font-size: 0.9em;
+}
+@media (max-width: 768px) {
+  .math-page-title {
+    font-size: 2rem;
+    margin: 1.5rem 0 0.5rem;
+  }
+  .math-page-title::after {
+    width: 90px;
+    height: 2px;
+  }
+}
+
+.math-control-table {
+  background: linear-gradient(145deg, #000000, #1a1a1a);
+  color: #e0e0e0;
+  border-radius: 15px;
+  overflow: auto;
+  box-shadow: 0 0 30px rgba(139, 0, 0, 0.2);
+  margin: 2rem auto;
+  max-width: 1600px;
+  max-height: 80vh;
+  scrollbar-width: thin;
+  scrollbar-color: #8b0000 #0a0a0a;
+}
+.math-control-table::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.math-control-table::-webkit-scrollbar-thumb {
+  background: #8b0000;
+  border-radius: 4px;
+}
+.math-control-table .table-header {
+  background: linear-gradient(145deg, #6a0000, #8b0000);
+  padding: 1.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.math-control-table .table-header h2 {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  font-size: 1.8rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+.math-control-table .table-header h2 i {
+  margin-right: 10px;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.5));
+}
+.math-control-table table {
+  width: 100%;
+  border-collapse: collapse;
+  position: relative;
+  z-index: 1;
+}
+.math-control-table table th {
+  background: rgba(139, 0, 0, 0.3);
+  padding: 1rem;
+  font-weight: 600;
+  text-align: left;
+  position: sticky;
+  top: 60px;
+  z-index: 3;
+  backdrop-filter: blur(5px);
+}
+.math-control-table table th:first-child {
+  left: 0;
+  z-index: 4;
+  backdrop-filter: blur(8px);
+}
+.math-control-table table th:nth-child(1) {
+  width: 4%;
+}
+.math-control-table table th:nth-child(2) {
+  width: 8%;
+}
+.math-control-table table th:nth-child(3) {
+  width: 7%;
+}
+.math-control-table table th:nth-child(4) {
+  width: 7%;
+}
+.math-control-table table th:nth-child(5) {
+  width: 15%;
+}
+.math-control-table table th:nth-child(6) {
+  width: 8%;
+}
+.math-control-table table th:nth-child(7) {
+  width: 8%;
+}
+.math-control-table table th:nth-child(8) {
+  width: 7%;
+}
+.math-control-table table td {
+  padding: 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: #0a0a0a;
+}
+.math-control-table table td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(90deg, #0a0a0a 95%, transparent);
+}
+.math-control-table table td:nth-child(1) {
+  width: 4%;
+}
+.math-control-table table td:nth-child(2) {
+  width: 8%;
+  min-width: 90px;
+}
+.math-control-table table td:nth-child(5) {
+  width: 15%;
+  min-width: 150px;
+}
+.math-control-table table td.status {
+  text-align: center;
+  font-size: 1.2rem;
+}
+.math-control-table table td.status .checked {
+  color: #00ff88;
+  text-shadow: 0 0 8px rgba(0, 255, 136, 0.3);
+}
+.math-control-table table td.status .unchecked {
+  color: #ff4444;
+  text-shadow: 0 0 8px rgba(255, 68, 68, 0.3);
+}
+.math-control-table table td.status .partial {
+  color: #ffd700;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+}
+.math-control-table table tr {
+  transition: background 0.3s ease;
+}
+.math-control-table table tr:hover {
+  background: rgba(139, 0, 0, 0.1);
+}
+.math-control-table table tr.question-header {
+  background: rgba(139, 0, 0, 0.15);
+  font-weight: 600;
+  position: sticky;
+  top: 100px;
+  z-index: 2;
+}
+.math-control-table table tr.question-header td {
+  padding: 0.6rem 1rem;
+  font-size: 0.95em;
+  background: rgba(42, 0, 0, 0.4);
+}
+.math-control-table table tr.sub-item td:first-child {
+  padding-left: 2rem;
+  opacity: 0.8;
+}
+.math-control-table table .edition-comparison {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.math-control-table table .edition-comparison .edition-tag {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+}
+.math-control-table table .edition-comparison .edition-tag:hover {
+  transform: scale(1.05);
+}
+.math-control-table table .edition-comparison .edition-tag.ed5 {
+  background: rgba(0, 100, 0, 0.3);
+  border: 1px solid rgba(0, 150, 0, 0.5);
+}
+.math-control-table table .edition-comparison .edition-tag.ed6 {
+  background: rgba(0, 0, 100, 0.3);
+  border: 1px solid rgba(0, 0, 150, 0.5);
+}
+@media (max-width: 768px) {
+  .math-control-table {
+    max-height: 90vh;
+    margin: 1rem;
+    border-radius: 10px;
+  }
+  .math-control-table table {
+    min-width: 800px;
+  }
+  .math-control-table table th {
+    top: 50px;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+  .math-control-table table td {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+  .math-control-table table .edition-tag {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+  }
+  .math-control-table .table-header h2 {
+    font-size: 1.4rem;
+    padding: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  .math-control-table .table-header {
+    padding: 0.8rem;
+  }
+  .math-control-table .table-header h2 {
+    font-size: 1.2rem;
+  }
+  .math-control-table .table-header h2 i {
+    font-size: 0.9em;
+  }
+  .math-control-table table th {
+    top: 45px;
+    padding: 0.6rem;
+  }
+  .math-control-table table td {
+    padding: 0.5rem;
+  }
+}
+
+hr {
+  border: 0;
+  height: 3px;
+  margin: 4rem auto;
+  width: 85%;
+  position: relative;
+  background: linear-gradient(90deg, transparent, rgba(255, 50, 50, 0.8) 50%, transparent);
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.3);
+  opacity: 0.9;
+}
+hr::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3) 50%, transparent);
+}
+hr::after {
+  content: "✦✦✦";
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ff4444;
+  font-size: 1.5rem;
+  text-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+  font-weight: bold;
+}
+hr.section-divider {
+  margin: 6rem auto;
+  width: 70%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #ff4444 50%, transparent);
+}
+hr.section-divider::after {
+  content: "❖";
+  font-size: 2.2rem;
+  top: -24px;
+  color: #ff6666;
+}
+@media (max-width: 768px) {
+  hr {
+    width: 90%;
+    margin: 3rem auto;
+    height: 2px;
+  }
+  hr::after {
+    font-size: 1.2rem;
+    top: -14px;
+  }
+  hr.section-divider {
+    width: 85%;
+    height: 3px;
+  }
+  hr.section-divider::after {
+    font-size: 1.8rem;
+    top: -20px;
+  }
+}
+
+.footer {
+  --link-url: "https://github.com/LetMzDev";
+  margin-top: 120px;
+  margin-bottom: 30px;
+  padding: 20px 0 100px;
+  text-align: center;
+  color: #777;
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 100;
+  background: #000000;
+}
+.footer a {
+  color: #ff6666;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.footer a:hover {
+  text-decoration: underline;
+  filter: brightness(1.2);
+}
+@media (min-width: 769px) {
+  .footer {
+    padding-bottom: 20px;
+    margin-top: 80px;
+  }
+}
+
+/*# sourceMappingURL=main_table_control.css.map */

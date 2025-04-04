@@ -229,6 +229,44 @@ span[data-num1][data-num2] {
   font-size: 0.8em;
 }
 
+.mapa-container {
+  margin: 2rem 0;
+}
+.mapa-container .btn {
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+.mapa-container .btn::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1) 50%, transparent);
+  animation: btn-glow 3s infinite linear;
+}
+.mapa-container .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 0, 0, 0.6);
+}
+
+.map-text {
+  background: linear-gradient(145deg, #8b0000, #6a0000);
+  border: none;
+  box-shadow: 0 4px 15px rgba(139, 0, 0, 0.4);
+}
+
+@keyframes btn-glow {
+  from {
+    transform: rotate(45deg) translateX(-50%);
+  }
+  to {
+    transform: rotate(45deg) translateX(50%);
+  }
+}
 .footer {
   --link-url: "https://github.com/LetMzDev";
   margin-top: 120px;

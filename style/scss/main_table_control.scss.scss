@@ -3,8 +3,7 @@
 // Import =========================================================================================
 @use './components/body';
 @use './components/barra_rolagem.scss';
-@use './estilos/lista_questoes.scss/lista_itens.scss';
-@use './estilos/lista_questoes.scss/resolution_Map.scss';
+@use './estilos/tabelas/tabela_controle.scss';
 @use './components/footer.scss';
 
 // Bibliotecas ====================================================================================
@@ -18,4 +17,4 @@
 // Cloudflare Icons (Font Awesome)
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
 
-//sass style/scss/main_list_item.scss style/css/main_list_item.css
+//sass style/scss/main_table_control.scss.scss style/css/main_table_control.css
