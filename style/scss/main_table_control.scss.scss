@@ -3,9 +3,11 @@
 // Import =========================================================================================
 @use './components/body';
 @use './components/barra_rolagem.scss';
+@use './components/footer.scss';
+
+@use './estilos/tabelas/legendas.scss';
 @use './estilos/tabelas/sumario.scss';
 @use './estilos/tabelas/tabela_controle.scss';
-@use './components/footer.scss';
 
 // Bibliotecas ====================================================================================
 
