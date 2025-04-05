@@ -1,0 +1,483 @@
+// ----- VARIÁVEIS USADAS NA TABELA
+$primary-color: #8b0000;
+$background-dark: #0a0a0a;
+$background-gradient-start: #000000;
+$background-gradient-end: #1a1a1a;
+$text-light: #e0e0e0;
+$hover-effect: rgba(139, 0, 0, 0.1);
+$header-gradient-start: #6a0000;
+$header-gradient-end: #8b0000;
+$sticky-th-bg: rgba(139, 0, 0, 0.3);
+$sticky-th-first-child-bg: linear-gradient(90deg, #1a1a1a 95%, transparent); // Fundo TH sticky (primeira coluna)
+$sticky-td-first-child-bg: linear-gradient(90deg, $background-dark 95%, transparent); // Fundo TD sticky (primeira coluna)
+$table-border-color: rgba(255, 255, 255, 0.05);
+$blur-effect: blur(5px);
+$blur-effect-strong: blur(8px);
+
+// Cores de Status
+$status-checked-color: #00ff88;
+$status-unchecked-color: #ff4444;
+$status-partial-color: #ffd700; // Usado para HTML/Postado (OK)
+
+// ----- CORES E MIXIN PARA TAGS DE EDIÇÃO ( 1-9 ) -----
+$edition-colors:
+(
+	1: #ff6347,
+	2: #4682b4,
+	3: #32cd32,
+	4: #ffb347,
+	5: #9370db,
+	6: #40e0d0,
+	7: #ff69b4,
+	8: #87ceeb,
+	9: #f0e68c
+);
+
+@mixin edition-tag-style($edition, $color)
+{
+	&.ed#{$edition}
+	{
+		background-color: rgba($color, 0.2);
+		border: 1px solid rgba($color, 0.6);
+		color: $color;
+
+		&:hover
+		{
+			background-color: rgba($color, 0.3);
+			border-color: $color;
+		}
+	}
+}
+
+// ----- ESTILOS DA TABELA PRINCIPAL -----
+.math-control-table
+{
+	background: linear-gradient(
+		145deg,
+		$background-gradient-start,
+		$background-gradient-end
+	);
+
+	color: $text-light;
+	border-radius: 15px;
+	box-shadow: 0 0 30px rgba(139, 0, 0, 0.2);
+	margin: 2rem auto;
+	max-width: 95%;
+	border: 1px solid rgba($primary-color, 0.3);
+
+	.table-header
+	{
+		background: linear-gradient(
+			145deg,
+			$header-gradient-start,
+			$header-gradient-end
+		);
+
+		padding: 1.2rem 1.5rem;
+		position: sticky;
+		top: 0;
+		z-index: 10; // Z-index alto para ficar sobre a tabela rolável
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+		border-top-left-radius: 14px;
+		border-top-right-radius: 14px;
+
+		h2
+		{
+			font-family: 'Poppins', sans-serif;
+			margin: 0;
+			font-size: 1.8rem;
+			text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+			color: $text-light;
+
+			i
+			{
+				margin-right: 10px;
+				filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.5));
+				color: lighten($primary-color, 15%);
+			}
+		}
+	}
+
+	// ----- TABLE WRAPPER PARA SCROLL HORIZONTAL E VERTICAL -----
+	.table-wrapper
+	{
+		overflow-x: auto; // Habilita scroll horizontal QUANDO necessário
+		overflow-y: auto; // Habilita scroll vertical QUANDO necessário
+		max-height: 75vh;
+		-webkit-overflow-scrolling: touch; // Scroll suave em iOS
+		margin: 0;
+		padding: 0;
+		border-bottom-left-radius: 14px;
+		border-bottom-right-radius: 14px;
+
+		// -- Estilos da Barra de Rolagem para o Wrapper --
+		// Padrão Firefox / Futuro CSS
+		scrollbar-width: thin;
+		scrollbar-color: $primary-color $background-dark;
+
+		// Padrão WebKit (Chrome, Safari, Edge)
+		&::-webkit-scrollbar
+		{
+			width: 10px;
+			height: 10px;
+			background-color: $background-dark;
+		}
+
+		&::-webkit-scrollbar-thumb
+		{
+			background-color: $primary-color;
+			border-radius: 5px;
+			border: 2px solid $background-dark;
+		}
+
+		&::-webkit-scrollbar-track
+		{
+			background: $background-dark;
+		}
+	}
+
+	// ----- ESTILOS DA TABELA INTERNA -----
+	table
+	{
+		width: 100%;
+		border-collapse: collapse;
+		min-width: 1800px;
+		position: relative;
+		border-spacing: 0;
+
+		// Cabeçalhos da Tabela (TH)
+		th
+		{
+			background: $sticky-th-bg;
+			padding: 0.9rem 1rem;
+			font-weight: 600;
+			text-align: left;
+			position: sticky;
+			top: 0;
+			z-index: 3;
+			backdrop-filter: $blur-effect;
+			border-bottom: 2px solid $primary-color;
+			white-space: nowrap;
+
+			// Primeira Coluna (ID) - Sticky Horizontal
+			&:first-child
+			{
+				position: sticky;
+				left: 0;
+				z-index: 4; // Acima dos outros THs e TDs
+				background: $sticky-th-first-child-bg;
+				backdrop-filter: $blur-effect-strong;
+				min-width: 60px;
+				width: 4%;
+			}
+
+			// ----- LARGURAS DAS COLUNAS (15 COLUNAS) -----
+			// 2: Questões
+			&:nth-child(2)
+			{
+				width: 18%;
+				min-width: 200px;
+			}
+
+			// 3 a 11: Edições (9 colunas)
+			&:nth-child(n+3):nth-child(-n+11)
+			{
+				width: 5%;
+				min-width: 65px;
+				text-align: center;
+			}
+
+			// 12: Grupos
+			&:nth-child(12)
+			{
+				width: 25%;
+				min-width: 280px;
+			}
+
+			// 13: Resolvido
+			&:nth-child(13)
+			{
+				width: 7%;
+				min-width: 90px;
+				text-align: center;
+			}
+
+			// 14: HTML
+			&:nth-child(14)
+			{
+				width: 7%;
+				min-width: 90px;
+				text-align: center;
+			}
+
+			// 15: Revisão
+			&:nth-child(15)
+			{
+				width: 7%;
+				min-width: 90px;
+				text-align: center;
+			}
+		}
+
+		// Células da Tabela (TD)
+		td
+		{
+			padding: 0.8rem 1rem;
+			border-bottom: 1px solid $table-border-color;
+			background: $background-dark;
+			vertical-align: middle;
+
+			// Primeira Coluna (ID) - Sticky Horizontal
+			&:first-child
+			{
+				position: sticky;
+				left: 0;
+				z-index: 2;
+				background: $sticky-td-first-child-bg;
+				font-weight: bold;
+				text-align: center;
+			}
+
+			// Colunas de Edição (3 a 11) - Centralizar conteúdo
+			&:nth-child(n+3):nth-child(-n+11)
+			{
+				text-align: center;
+			}
+
+			// Colunas de Status (Resolvido, HTML, Revisão - 13 a 15)
+			&:nth-child(n+13):nth-child(-n+15)
+			{
+				text-align: center;
+			}
+
+			// Classe para Células de Status (com ícones)
+			&.status
+			{
+				font-size: 1.1rem;
+				text-align: center; // Para GARANTIR
+
+				.checked
+				{
+					color: $status-checked-color;
+					text-shadow: 0 0 8px rgba($status-checked-color, 0.3);
+				}
+
+				.unchecked
+				{
+					color: $status-unchecked-color;
+					text-shadow: 0 0 8px rgba($status-unchecked-color, 0.3);
+				}
+
+				.partial
+				{
+					color: $status-partial-color;
+					text-shadow: 0 0 8px rgba($status-partial-color, 0.3);
+					font-weight: bold;
+				}
+			}
+
+			// Coluna 'Grupos' (12) - Estilos aplicados ao container interno
+			&:nth-child(12) {}
+		}
+
+		// Linhas da Tabela (TR)
+		tr
+		{
+			transition: background-color 0.3s ease;
+
+			&:hover
+			{
+				background-color: $hover-effect;
+
+				td:first-child
+				{
+					// Destaca sticky TD no hover
+					background: linear-gradient(
+						90deg,
+						darken($background-dark, 5%) 95%,
+						transparent
+					);
+				}
+			}
+
+			// Linha de sub-item (ajuste se necessário)
+			&.sub-item {
+				// td:first-child { } // Estilos específicos se houver
+			}
+		}
+
+		// ----- Container das Tags de Edição (dentro do TD Grupos) -----
+		.edition-comparison
+		{
+			display: flex;
+			flex-wrap: wrap;
+			gap: 6px; // Espaçamento entre as tags
+			align-items: center;
+			justify-content: flex-start;
+		}
+
+		// ----- Estilo das Tags de Edição Individuais -----
+		.edition-tag
+		{
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 26px;
+			height: 26px;
+			padding: 0;
+			border-radius: 50%; // Círculo
+			font-size: 0.8rem;
+			font-weight: bold;
+			text-align: center;
+			transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+			flex-shrink: 0; // Impede que encolham
+
+			&:hover
+			{
+				transform: scale(1.1);
+				filter: brightness(1.2);
+			}
+
+			// ----- Gera as classes .ed1, .ed2, ... .ed9 -----
+			@each $edition, $color in $edition-colors
+			{
+				@include edition-tag-style($edition, $color);
+			}
+		}
+	}
+
+	// Fim da tag table
+
+	// ----- Media Queries para Responsividade da Tabela -----
+	@media (max-width: 1200px)
+	{
+		table
+		{
+			min-width: 1600px;
+		}
+	}
+
+	@media (max-width: 992px)
+	{
+		table
+		{
+			min-width: 1400px;
+
+			th,
+			td
+			{
+				padding: 0.7rem 0.8rem;
+				font-size: 0.9rem;
+			}
+
+			.edition-tag
+			{
+				width: 24px;
+				height: 24px;
+				font-size: 0.75rem;
+			}
+
+			th:nth-child(12)
+			{
+				min-width: 240px;
+			}
+		}
+
+		.table-header h2
+		{
+			font-size: 1.6rem;
+		}
+	}
+
+	@media (max-width: 768px)
+	{
+		max-width: 100%;
+		margin: 1rem 0;
+		border-radius: 0;
+
+		.table-header
+		{
+			border-radius: 0;
+			padding: 1rem;
+
+			h2
+			{
+				font-size: 1.4rem;
+			}
+		}
+
+		.table-wrapper
+		{
+			border-radius: 0;
+			max-height: 80vh;
+		}
+
+		table
+		{
+			min-width: 1200px;
+
+			th,
+			td
+			{
+				padding: 0.6rem 0.7rem;
+				font-size: 0.85rem;
+			}
+
+			th
+			{
+				top: 0;
+			}
+
+			.edition-tag
+			{
+				width: 22px;
+				height: 22px;
+				font-size: 0.7rem;
+			}
+
+			th:nth-child(12)
+			{
+				min-width: 220px;
+			}
+		}
+	}
+
+	@media (max-width: 480px)
+	{
+		.table-header h2
+		{
+			font-size: 1.2rem;
+
+			i
+			{
+				font-size: 0.9em;
+			}
+		}
+
+		table
+		{
+			min-width: 1000px;
+
+			th,
+			td
+			{
+				padding: 0.5rem 0.6rem;
+				font-size: 0.8rem;
+			}
+
+			.edition-tag
+			{
+				width: 20px;
+				height: 20px;
+				font-size: 0.65rem;
+				gap: 4px;
+			}
+
+			th:nth-child(12)
+			{
+				min-width: 200px;
+			}
+		}
+	}
+
+}
