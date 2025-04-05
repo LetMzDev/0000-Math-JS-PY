@@ -1,0 +1,152 @@
+.sumario-container
+{
+	background: linear-gradient(
+		145deg,
+		#0a0a0a,
+		#1a1a1a
+	);
+
+	border-radius: 12px;
+	margin: 2rem auto;
+	max-width: 1200px;
+	box-shadow: 0 0 25px rgba(139, 0, 0, 0.15);
+	border: 1px solid rgba(139, 0, 0, 0.3);
+
+	&-header
+	{
+		padding: 1.5rem;
+		font-family: 'Poppins', sans-serif;
+		font-size: 1.4rem;
+		color: #ff6666;
+		border-bottom: 2px solid #8b0000;
+
+		i
+		{
+			margin-right: 12px;
+			color: #8b0000;
+		}
+	}
+}
+
+.sumario-grid
+{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 1.5rem;
+	padding: 1.5rem;
+}
+
+.sumario-item
+{
+	display: flex;
+	background: linear-gradient(145deg, #000000, #121212);
+	border-radius: 8px;
+	padding: 1.2rem;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	text-decoration: none;
+	border: 1px solid rgba(139, 0, 0, 0.2);
+
+	&:hover
+	{
+		transform: translateY(-3px);
+		box-shadow: 0 5px 15px rgba(139, 0, 0, 0.3);
+		border-color: #8b0000;
+
+		.sumario-icon i
+		{
+			color: #ff4444;
+		}
+	}
+}
+
+.sumario-icon
+{
+	width: 50px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(139, 0, 0, 0.1);
+	border-radius: 8px;
+	margin-right: 1.2rem;
+
+	i
+	{
+		font-size: 1.6rem;
+		color: #8b0000;
+		transition: color 0.3s ease;
+	}
+}
+
+.sumario-content
+{
+	flex: 1;
+
+	.sumario-title
+	{
+		display: block;
+		font-family: 'Poppins', sans-serif;
+		color: #ff6666;
+		font-size: 1.2rem;
+		margin-bottom: 0.3rem;
+	}
+
+	.sumario-sub
+	{
+		display: block;
+		color: #aaa;
+		font-size: 1.15rem;
+		margin-bottom: 0.8rem;
+	}
+}
+
+.sumario-status
+{
+	display: flex;
+	gap: 8px;
+
+	span
+	{
+		padding: 4px 10px;
+		border-radius: 15px;
+		font-size: 1rem;
+		font-weight: 500;
+
+		&.status-resolved
+		{
+			background: rgba(0, 255, 136, 0.1);
+			color: #00ff88;
+		}
+
+		&.status-partial
+		{
+			background: rgba(255, 215, 0, 0.1);
+			color: #ffd700;
+		}
+
+		&.status-pending
+		{
+			background: rgba(255, 68, 68, 0.1);
+			color: #e044ff;
+		}
+
+		&.status-total
+		{
+			background: rgba(139, 0, 0, 0.2);
+			color: #d53131;
+		}
+	}
+}
+
+@media (max-width: 768px)
+{
+	.sumario-grid
+	{
+		grid-template-columns: 1fr;
+	}
+
+	.sumario-item
+	{
+		padding: 1rem;
+	}
+}
