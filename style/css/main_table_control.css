@@ -460,18 +460,30 @@ html {
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 500;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, filter 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  cursor: default;
 }
 .math-control-table table .edition-comparison .edition-tag:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
+  filter: brightness(1.2);
 }
 .math-control-table table .edition-comparison .edition-tag.ed5 {
-  background: rgba(0, 100, 0, 0.3);
+  background: rgba(0, 150, 0, 0.3);
   border: 1px solid rgba(0, 150, 0, 0.5);
+  color: #30ff30;
+}
+.math-control-table table .edition-comparison .edition-tag.ed5:hover {
+  background: rgba(0, 150, 0, 0.4);
+  border-color: #009600;
 }
 .math-control-table table .edition-comparison .edition-tag.ed6 {
-  background: rgba(0, 0, 100, 0.3);
+  background: rgba(0, 0, 150, 0.3);
   border: 1px solid rgba(0, 0, 150, 0.5);
+  color: #6363ff;
+}
+.math-control-table table .edition-comparison .edition-tag.ed6:hover {
+  background: rgba(0, 0, 150, 0.4);
+  border-color: #000096;
 }
 @media (max-width: 768px) {
   .math-control-table {
