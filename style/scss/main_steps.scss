@@ -15,7 +15,9 @@
 
 // Responsivo
 @use './responsive/resolution.scss';
+@use './responsive/property_math_resp.scss';
 @use './responsive/imagens_resp.scss';
+@use './responsive/conclusion_resp.scss';
 
 // Biblioteca =====================================================================================
 

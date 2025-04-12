@@ -1,3 +1,5 @@
+// resolution.scss
+
 @media (max-width: 768px)
 {
 	.container
@@ -41,6 +43,39 @@
 		padding: 10px !important;
 	}
 
+	// ==========================================
+	// .solution-final
+	// ==========================================
+
+	.solution-final h5
+	{
+		font-size: 1.6rem !important;
+	}
+
+	.solution-final h5::after
+	{
+		margin-left: 10px;
+	}
+
+	.solution-final p
+	{
+		font-size: 1.4rem;
+	}
+
+	.solution-final p.text-muted
+	{
+		font-size: 1.1rem !important;
+	}
+
+	.solution-final p.text-center
+	{
+		padding: 8px 15px;
+	}
+
+	// ==========================================
+	// .footer
+	// ==========================================
+	
 	.footer
 	{
 		margin-top: 30px;
@@ -81,6 +116,39 @@
 		padding: 1px 3px !important;
 	}
 
+	// ==========================================
+	// .solution-final
+	// ==========================================
+
+	.solution-final h5
+	{
+		font-size: 1.4rem !important;
+	}
+
+	.solution-final h5::after
+	{
+		margin-left: 8px;
+	}
+
+	.solution-final p
+	{
+		font-size: 1.2rem;
+	}
+
+	.solution-final p.text-muted
+	{
+		font-size: 1.0rem !important;
+	}
+
+	.solution-final p.text-center
+	{
+		padding: 6px 12px;
+	}
+
+	// ==========================================
+	// .footer
+	// ==========================================
+
 	.footer
 	{
 		margin-top: 20px;
@@ -107,5 +175,29 @@
 	.MathJax_Display
 	{
 		font-size: 1.1em !important;
+	}
+
+	// ==========================================
+	// .solution-final
+	// ==========================================
+
+	.solution-final h5
+	{
+		font-size: 1.3rem !important;
+	}
+
+	.solution-final p
+	{
+		font-size: 1.1rem;
+	}
+
+	.solution-final p.text-muted
+	{
+		font-size: 0.9rem !important;
+	}
+
+	.solution-final p.text-center
+	{
+		padding: 5px 10px;
 	}
 }

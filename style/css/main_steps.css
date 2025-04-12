@@ -791,6 +791,21 @@ canvas {
     margin: 1em 0 !important;
     padding: 10px !important;
   }
+  .solution-final h5 {
+    font-size: 1.6rem !important;
+  }
+  .solution-final h5::after {
+    margin-left: 10px;
+  }
+  .solution-final p {
+    font-size: 1.4rem;
+  }
+  .solution-final p.text-muted {
+    font-size: 1.1rem !important;
+  }
+  .solution-final p.text-center {
+    padding: 8px 15px;
+  }
   .footer {
     margin-top: 30px;
     font-size: 0.8rem;
@@ -816,6 +831,21 @@ canvas {
   .mjx-chtml {
     padding: 1px 3px !important;
   }
+  .solution-final h5 {
+    font-size: 1.4rem !important;
+  }
+  .solution-final h5::after {
+    margin-left: 8px;
+  }
+  .solution-final p {
+    font-size: 1.2rem;
+  }
+  .solution-final p.text-muted {
+    font-size: 1rem !important;
+  }
+  .solution-final p.text-center {
+    padding: 6px 12px;
+  }
   .footer {
     margin-top: 20px;
   }
@@ -833,7 +863,76 @@ canvas {
   .MathJax_Display {
     font-size: 1.1em !important;
   }
+  .solution-final h5 {
+    font-size: 1.3rem !important;
+  }
+  .solution-final p {
+    font-size: 1.1rem;
+  }
+  .solution-final p.text-muted {
+    font-size: 0.9rem !important;
+  }
+  .solution-final p.text-center {
+    padding: 5px 10px;
+  }
 }
+@media (max-width: 768px) {
+  .math-property {
+    padding: 18px;
+    margin: 18px 0;
+  }
+  .math-property:hover {
+    transform: perspective(800px) rotateX(2deg) rotateY(2deg) translateZ(10px) translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35), inset 0 3px 6px rgba(0, 0, 0, 0.18);
+  }
+  .property-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+  }
+  .property-text .mathjax,
+  .property-text .MathJax {
+    font-size: 0.9em !important;
+  }
+}
+@media (max-width: 576px) {
+  .math-property {
+    padding: 15px;
+    border-radius: 10px;
+  }
+  .property-icon {
+    font-size: 1.8rem;
+    margin-right: 12px;
+  }
+  .property-text {
+    line-height: 1.55;
+  }
+  .property-text .mathjax,
+  .property-text .MathJax {
+    font-size: 0.9em !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+    display: inline-block;
+  }
+  .property-text .MathJax_Display {
+    padding: 0.5em !important;
+    margin: 0.8em 0 !important;
+    white-space: normal !important;
+  }
+}
+mjx-container[jax=CHTML][display=true] {
+  white-space: normal !important;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  display: block;
+  text-align: left;
+}
+
+mjx-container * {
+  white-space: normal !important;
+}
+
 @media (max-width: 768px) {
   .modal-conteudo {
     width: 95% !important;
@@ -853,6 +952,55 @@ canvas {
   .modal-legenda {
     font-size: 14px;
     max-width: 90%;
+  }
+}
+@media (max-width: 768px) {
+  .conclusion-final:hover {
+    transform: perspective(800px) rotateX(3deg) rotateY(3deg) translateZ(10px);
+  }
+  .conclusion-final:hover::before {
+    transform: translateZ(-10px);
+  }
+  .conclusion-final h5 {
+    font-size: 1.6rem !important;
+  }
+  .conclusion-final p {
+    font-size: 1.4rem;
+  }
+  .conclusion-final p.text-muted {
+    font-size: 1.3rem;
+  }
+  .conclusion-final p.text-center {
+    padding: 6px 15px;
+    font-size: 1.3rem;
+  }
+}
+@media (max-width: 576px) {
+  .conclusion-final {
+    padding: 12px;
+  }
+  .conclusion-final:hover {
+    transform: none;
+  }
+  .conclusion-final h5 {
+    font-size: 1.4rem !important;
+    text-align: center;
+  }
+  .conclusion-final h5::after {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 1.2rem;
+  }
+  .conclusion-final p {
+    font-size: 1.2rem;
+  }
+  .conclusion-final p.text-muted {
+    font-size: 1.1rem;
+  }
+  .conclusion-final p.text-center {
+    padding: 5px 10px;
+    font-size: 1.15rem;
+    text-align: center;
   }
 }
 

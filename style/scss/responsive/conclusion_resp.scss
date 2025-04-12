@@ -1,0 +1,82 @@
+// conclusion_resp.scss
+
+@media (max-width: 768px)
+{
+	.conclusion-final
+	{
+		// Reduz efeito 3D para melhor usabilidade em touch
+		&:hover
+		{
+			transform: perspective(800px) rotateX(3deg) rotateY(3deg) translateZ(10px);
+
+			&::before
+			{
+				transform: translateZ(-10px);
+			}
+		}
+
+		h5
+		{
+			font-size: 1.6rem !important;
+		}
+
+		p
+		{
+			font-size: 1.4rem;
+		}
+
+		p.text-muted
+		{
+			font-size: 1.3rem;
+		}
+
+		p.text-center
+		{
+			padding: 6px 15px;
+			font-size: 1.3rem;
+		}
+	}
+}
+
+@media (max-width: 576px)
+{
+	.conclusion-final
+	{
+		padding: 12px;
+
+		&:hover
+		{
+			transform: none; // Remove efeito em telas muito pequenas
+		}
+
+		h5
+		{
+			font-size: 1.4rem !important;
+			text-align: center;
+
+			&::after
+			{
+				display: inline-block;
+				margin-left: 10px;
+				font-size: 1.2rem;
+			}
+		}
+
+		p
+		{
+			font-size: 1.2rem;
+		}
+
+		p.text-muted
+		{
+			font-size: 1.1rem;
+		}
+
+		p.text-center
+		{
+			padding: 5px 10px;
+			font-size: 1.15rem;
+			text-align: center;
+		}
+	}
+}

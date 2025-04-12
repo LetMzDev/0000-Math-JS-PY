@@ -1,0 +1,89 @@
+// property_math_resp.scss
+
+// Estilos responsivos para elementos de propriedades matemáticas
+
+// Dispositivos médios (tablets e similares)
+@media (max-width: 768px)
+{
+	.math-property {
+		padding: 18px;
+		margin: 18px 0;
+
+		// Desativar ou suaviza efeitos 3D em telas menores
+		&:hover
+		{
+			transform: perspective(800px) rotateX(2deg) rotateY(2deg) translateZ(10px) translateY(-2px);
+			box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35), inset 0 3px 6px rgba(0, 0, 0, 0.18);
+		}
+	}
+
+	.property-icon
+	{
+		font-size: 2rem;
+		margin-right: 15px;
+	}
+
+	.property-text
+	{
+		.mathjax,
+		.MathJax
+		{
+			font-size: 0.9em !important;
+		}
+	}
+}
+
+// Dispositivos pequenos (celulares)
+@media (max-width: 576px)
+{
+	.math-property
+	{
+		padding: 15px;
+		border-radius: 10px;
+	}
+
+	.property-icon
+	{
+		font-size: 1.8rem;
+		margin-right: 12px;
+	}
+
+	.property-text
+	{
+		line-height: 1.55;
+
+		.mathjax,
+		.MathJax
+		{
+			font-size: 0.9em !important;
+			overflow-wrap: break-word;
+			word-wrap: break-word;
+			word-break: break-word;
+			white-space: normal;
+			display: inline-block;
+		}
+
+		// Ajuste de espaçamento para blocos MathJax (display math)
+		.MathJax_Display
+		{
+			padding: 0.5em !important;
+			margin: 0.8em 0 !important;
+			white-space: normal !important;
+		}
+	}
+}
+
+// Garantir quebra em todos mjx-containers (MathJax v3)
+mjx-container[jax="CHTML"][display="true"]
+{
+	white-space: normal !important;
+	overflow-wrap: break-word;
+	word-break: break-word;
+	display: block;
+	text-align: left;
+}
+
+mjx-container *
+{
+	white-space: normal !important;
+}
