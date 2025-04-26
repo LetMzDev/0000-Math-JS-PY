@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang = "pt-br">
+<head>
+	<meta charset = "UTF-8">
+	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+	<link rel = "icon" href = "../../../../../img/icon.png" type="image/png">
+	<title>Demonstração 1.1, 2</title>
+
+	<!-- MathJax -->
+	<script id = "MathJax-script" async src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<!-- Three.js -->
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src = "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/FontLoader.js"></script>
+	<!-- Custom CSS -->
+	<link rel = "stylesheet" href = "../../../../../style/css/main_steps.css">
+</head>
+
+<body>
+<main>
+<div class = "container">
+	<div class = "row justify-content-center">
+		<div class = "col-md-8">
+			<div class = "card">
+				<div class = "card-header text-center">
+					<!--  Titulo em js -->
+				</div>
+				<div class = "card-body">
+					<h4>Demonstração:</h4>
+					<h5> \[ \frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd} \]</h5>
+					<hr>
+
+					<section> <!-- Demonstração da Multiplicação de Racionais -->
+						<article class = "step"> <!-- Passo 1: Definindo o Problema -->
+							<h5><i class = "fas fa-question-circle"></i> Passo 1: Definindo a Multiplicação de Racionais</h5>
+							<p>Queremos demonstrar como se calcula o produto de dois números racionais, \(\frac{a}{b}\) e \(\frac{c}{d}\).</p>
+							<p>A operação é representada por:</p>
+							<p class = "mathjax">
+								\[
+								\frac{a}{b} \cdot \frac{c}{d}
+								\]
+							</p>
+							<p>Onde \(a\), \(b\), \(c\) e \(d\) são números inteiros, e \(b \neq 0\) e \(d \neq 0\) (pois não podemos dividir por zero).</p>
+						</article>
+
+						<article class = "step"> <!-- Passo 2: A Regra da Multiplicação -->
+							<h5><i class = "fas fa-times"></i> Passo 2: A Regra da Multiplicação de Frações</h5>
+							<p>A regra para multiplicar frações é direta: multiplicamos os numeradores entre si para obter o novo numerador, e multiplicamos os denominadores entre si para obter o novo denominador.</p>
+							<p>Ao contrário da adição, não precisamos encontrar um denominador comum.</p>
+						</article>
+
+						<article class = "step"> <!-- Passo 3: Multiplicando os Numeradores -->
+							<h5><i class = "fas fa-arrow-up"></i> Passo 3: Multiplicando os Numeradores</h5>
+							<p>Multiplicamos o numerador da primeira fração (\(a\)) pelo numerador da segunda fração (\(c\)):</p>
+							<p class = "mathjax">
+								\[
+								\text{Novo Numerador} = a \cdot c = ac
+								\]
+							</p>
+						</article>
+
+						<article class = "step"> <!-- Passo 4: Multiplicando os Denominadores -->
+							<h5><i class = "fas fa-arrow-down"></i> Passo 4: Multiplicando os Denominadores</h5>
+							<p>Multiplicamos o denominador da primeira fração (\(b\)) pelo denominador da segunda fração (\(d\)):</p>
+							<p class = "mathjax">
+								\[
+								\text{Novo Denominador} = b \cdot d = bd
+								\]
+							</p>
+							 <p>Como \(b \neq 0\) e \(d \neq 0\), o produto \(bd\) também será diferente de zero.</p>
+						</article>
+
+						<article class = "step"> <!-- Passo 5: Combinando os Resultados -->
+							<h5><i class = "fas fa-equals"></i> Passo 5: Combinando os Resultados</h5>
+							<p>Agora, formamos a nova fração com o numerador e o denominador calculados nos passos anteriores:</p>
+							<p class = "mathjax">
+								\[
+								\frac{a}{b} \cdot \frac{c}{d} = \frac{\text{Novo Numerador}}{\text{Novo Denominador}} = \frac{ac}{bd}
+								\]
+							</p>
+						</article>
+
+						<article class = "conclusion-final"> <!-- Passo 6: Conclusão -->
+							<h5><i class = "fas fa-check-circle"></i> Passo 6: Conclusão</h5>
+
+							<p class = "text-muted text-center">Portanto, demonstramos que:</p>
+							<p class = "mathjax">
+								\[
+								\frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd}
+								\]
+							</p>
+							<p class = "text-muted text-center">Esta é a fórmula padrão para multiplicar dois números racionais.</p>
+						</article>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</main>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+	<!-- jsPDF e canvg -->
+	<script src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+	<script src = "https://cdnjs.cloudflare.com/ajax/libs/canvg/3.0.0/canvg.min.js"></script>
+
+	<script type = "module" src = "../../../../../script/javascript/main_step_ii.js"></script>
+	<script src = "../../../../../script/javascript/resolutions/tittle_resolution.js"></script>
+</body>
+</html>
